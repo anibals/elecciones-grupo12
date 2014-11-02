@@ -9,9 +9,9 @@
         <!-- Settings for a local HSQL (testing) database. -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost/planilla</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password">root</property>
+        <property name="connection.url">jdbc:mysql://www.db4free.net:3306/elecciones2014</property>
+        <property name="connection.username">g12igf2014</property>
+        <property name="connection.password">g12igf2014*</property>
 
         <!-- Use the C3P0 connection pool. -->
         <property name="c3p0.min_size">3</property>
@@ -43,8 +43,8 @@
         <!-- Hibernate Annotations (and package-info.java)
         <mapping package="org.mypackage"/>
         -->
-        <mapping class="sv.edu.ues.igf115.planilla.dominio.Empleado"/>
-        <mapping class="sv.edu.ues.igf115.planilla.dominio.Departamento"/>
+        <mapping class="sv.edu.ues.igf115.eleccionesfrupo12.PartidoPolitico"/>
+        <mapping class="sv.edu.ues.igf115.eleccionesfrupo12.Urna"/>
 
     </session-factory>
 
