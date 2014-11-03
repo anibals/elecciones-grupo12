@@ -8,7 +8,7 @@
 <%@ page import="net.sf.jasperreports.engine.export.*" %>
 <%
 Connection conn = null;
-try {
+try { 
 	Class.forName("com.mysql.jdbc.Driver"); //se carga el driver
 	conn = DriverManager.getConnection(
 			"jdbc:mysql://www.db4free.net:3306/elecciones2014",
