@@ -1,5 +1,7 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Basic;
@@ -7,28 +9,58 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="PartidoPolitico", catalog="", schema="")
+@Table(name="PartidoPolitico", catalog="elecciones2014", schema="")
 public class PartidoPolitico {
 	
 	@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="id_partidopolitico")
-	String idPartidoPolitico;
+	private String idPartidoPolitico;
 	
 	@Basic(optional=false)
 	@Column(name="nomb_partido")
-	String nombrePartido;
+	private String nombrePartido;
 	
 	@Basic(optional=false)
 	@Column(name="fech_fundac")
-	Date fechaFundacion;
+	private Date fechaFundacion;
 	
 	@Basic(optional=false)
 	@Column(name="nomb_secret_gral")
-	String nombreSecretarioGeneral;
+	private String nombreSecretarioGeneral;
+	
+	@Basic(optional=true)
+	@Column(name="usercrea")
+	private String usuarioCreacion;
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name="fechacreacion")
+	private Date fechaCreacion;
+	
+	@Basic(optional=true)
+	@Column(name="usermodifica")
+	private String usuarioModificacion; 
+
+	@Temporal(TemporalType.DATE)
+	@Column(name="fechamodificacion")
+	private Date fechaModificacion;
+	
+	public PartidoPolitico(String idPartidoPolitico, String nombrePartido,
+			String fechaFundacion, String secretarioGeneral) throws ParseException {
+		this.idPartidoPolitico = idPartidoPolitico;
+		this.nombrePartido = nombrePartido;
+		this.fechaFundacion = new SimpleDateFormat("dd/MM/yyyy").parse(fechaFundacion);
+		this.nombreSecretarioGeneral = secretarioGeneral;
+	}
+	
+	public PartidoPolitico(){
+		
+	}
 
 	public String getIdPartidoPolitico() {
 		return idPartidoPolitico;
@@ -62,5 +94,39 @@ public class PartidoPolitico {
 		this.nombreSecretarioGeneral = nombreSecretarioGeneral;
 	}
 
+	public String getUsuarioCreacion() {
+		return usuarioCreacion;
+	}
+
+	public void setUsuarioCreacion(String usuarioCreacion) {
+		this.usuarioCreacion = usuarioCreacion;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Date fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
+	public String getUsuarioModificacion() {
+		return usuarioModificacion;
+	}
+
+	public void setUsuarioModificacion(String usuarioModificacion) {
+		this.usuarioModificacion = usuarioModificacion;
+	}
+
+	public Date getFechaModificacion() {
+		return fechaModificacion;
+	}
+
+	public void setFechaModificacion(Date fechaModificacion) {
+		this.fechaModificacion = fechaModificacion;
+	}
+
+	
 	
 }
+

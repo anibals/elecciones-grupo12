@@ -8,10 +8,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico;
+import sv.edu.ues.igf115.eleccionesgrupo12.dominio.MiembroJRV;
 import sv.edu.ues.igf115.eleccionesgrupo12.utilidades.HibernateUtil;
 
-public class PartidoPoliticoDAO {
+public class MiembroJRVDAO {
 
 	private HibernateUtil hibernateUtil = new HibernateUtil();
 	private SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
@@ -29,10 +29,10 @@ public class PartidoPoliticoDAO {
 		throw new HibernateException("Ocurrió un error en la capa DAO", he);
 	}
 
-	public void guardaActualiza(PartidoPolitico partidoPolitico) {
+	public void guardaActualiza(MiembroJRV miembroJRV) {
 		try {
 			iniciaOperacion();
-			sesion.saveOrUpdate(partidoPolitico);
+			sesion.saveOrUpdate(miembroJRV);
 			tx.commit();
 			sesion.flush();
 		} catch (HibernateException he) {
@@ -43,10 +43,10 @@ public class PartidoPoliticoDAO {
 		}
 	}
 
-	public void eliminar(PartidoPolitico partidoPolitico) {
+	public void eliminar(MiembroJRV miembroJRV) {
 		try {
 			iniciaOperacion();
-			sesion.delete(partidoPolitico);
+			sesion.delete(miembroJRV);
 			tx.commit();
 			sesion.flush();
 		} catch (HibernateException he) {
@@ -57,30 +57,28 @@ public class PartidoPoliticoDAO {
 		}
 	}
 
-	public PartidoPolitico daPartidoPoliticoById(String idPartidoPolitico) {
+	public MiembroJRV daMiembroJRVById(String idMiembroJRV) {
 		sesion = sessionFactory.openSession();
-		PartidoPolitico partido = (PartidoPolitico) sesion.get(
-				PartidoPolitico.class, idPartidoPolitico);
+		MiembroJRV miembroJRV = (MiembroJRV) sesion.get(MiembroJRV.class,
+				idMiembroJRV);
 		sesion.close();
-		return partido;
+		return miembroJRV;
 	}
 
-	public List<PartidoPolitico> daPartidosPoliticos() {
+	public List<MiembroJRV> daMiembroJRVs() {
 		sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("Partidos.findAll");
-		List<PartidoPolitico> partidos = query.list();
+		Query query = sesion.getNamedQuery("MiembroJRVs.findAll");
+		List<MiembroJRV> miembroJRVs = query.list();
 		sesion.close();
-		return partidos;
+		return miembroJRVs;
 	}
 
-	public PartidoPolitico daPartidoByNombre(String nombrePartido) {
+	public MiembroJRV daMiembroJRVByNombre(String nombreMiembroJRV) {
 		sesion = sessionFactory.openSession();
-		Query query = sesion
-				.getNamedQuery("PartidoPolitico.findByNombrePartido");
-		query.setParameter("nombrePartido", nombrePartido);
-		PartidoPolitico partido = (PartidoPolitico) query.uniqueResult();
+		Query query = sesion.getNamedQuery("MiembroJRV.findByNombreMiembroJRV");
+		query.setParameter("nombreMiembroJRV", nombreMiembroJRV);
+		MiembroJRV miembroJRV = (MiembroJRV) query.uniqueResult();
 		sesion.close();
-		return partido;
+		return miembroJRV;
 	}
 }
-
