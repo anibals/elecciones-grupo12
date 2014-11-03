@@ -43,8 +43,8 @@
         <!-- Hibernate Annotations (and package-info.java)
         <mapping package="org.mypackage"/>
         -->
-        <mapping class="sv.edu.ues.igf115.eleccionesfrupo12.PartidoPolitico"/>
-        <mapping class="sv.edu.ues.igf115.eleccionesfrupo12.Urna"/>
+        <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico"/>
+        <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Urna"/>
 
     </session-factory>
 
