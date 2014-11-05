@@ -1,3 +1,4 @@
+<%@page import="java.util.Date"%>
 <%@page import="sv.edu.ues.igf115.eleccionesgrupo12.negocio.CtrlPartidoPolitico"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -6,6 +7,7 @@ String idPartidoPolitico = request.getParameter("idPartidoPolitico");
 String nombrePartido = request.getParameter("nombrePartido");
 String fechaFundacion = request.getParameter("fechaFundacion");
 String secretarioGeneral = request.getParameter("secretarioGeneral");
+
 
 CtrlPartidoPolitico ctrlPartidoPolitico = new CtrlPartidoPolitico();
 boolean exito = ctrlPartidoPolitico.guardar(idPartidoPolitico, nombrePartido, fechaFundacion, secretarioGeneral);
