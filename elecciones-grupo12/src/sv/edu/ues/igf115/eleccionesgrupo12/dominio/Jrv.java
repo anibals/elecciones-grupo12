@@ -1,13 +1,16 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
 import java.util.Date;
-
+import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento;
+import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PadronElectoral;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -21,16 +24,34 @@ public class Jrv {
 @Column(name = "id_jrv")	
 private int id;
 
-@Basic(optional = false)
-@Column(name = "id_depto")
+@ManyToOne
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private Departamento iddepto;
 
-@Basic(optional = false)
-@Column(name = "id_municipio")
+@ManyToOne
 private Municipio idmunicipio;
 
-
+@ManyToOne
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 private PadronElectoral dui;
+
+@Basic(optional = false)
+@Column(name = "usercrea")
+private String usercrea;
+
+@Basic(optional = false)
+@Column(name = "fechacreacion")
+private Date fechacreacion;
+
+@Basic(optional = false)
+@Column(name = "usermodifica")
+private String usermodifica;
+
+@Basic(optional = false)
+@Column(name = "fechamodificacion")
+private Date fechamodificacion;
 
 
 
@@ -114,21 +135,7 @@ public void setFechamodificacion(Date fechamodificacion) {
 }
 
 
-@Basic(optional = false)
-@Column(name = "usercrea")
-private String usercrea;
 
-@Basic(optional = false)
-@Column(name = "fechacreacion")
-private Date fechacreacion;
-
-@Basic(optional = false)
-@Column(name = "usermodifica")
-private String usermodifica;
-
-@Basic(optional = false)
-@Column(name = "fechamodificacion")
-private Date fechamodificacion;
 
 
 public Jrv(){
