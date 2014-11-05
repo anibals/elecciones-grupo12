@@ -1,3 +1,7 @@
+<%@page import="org.springframework.web.context.WebApplicationContext"%>
+<%@page import="org.springframework.context.*"%>
+<%@page import="org.springframework.context.support.*"%>
+<%@page import="org.springframework.web.context.support.*"%>
 <%@page import="sv.edu.ues.igf115.eleccionesgrupo12.negocio.CtrlPartidoPolitico"%>
 <%@page import="sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -5,8 +9,7 @@
     pageEncoding="ISO-8859-1"%>
 <%
 String idPartidoPolitico = request.getParameter("idPartidoPolitico");
-
-CtrlPartidoPolitico ctrlPartidoPolitico = new CtrlPartidoPolitico();
+CtrlPartidoPolitico ctrlPartidoPolitico = (CtrlPartidoPolitico) ac.getBean("ctrlPartidoPolitico");
 PartidoPolitico partido = ctrlPartidoPolitico.daPartidoPoliticoById( idPartidoPolitico);
 String mensaje;
 if (partido != null) {
