@@ -1,6 +1,7 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.negocio;
 
 
+import java.util.Date;
 import java.util.List;
 
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.DepartamentoDAO;
@@ -13,11 +14,15 @@ public class CtrlDepartamento {
 	
 	private DepartamentoDAO daoDepartamento = new DepartamentoDAO();
 
-	public boolean guardar(String idDepto, String nombDepto, String zonaGeografica){
+	public boolean guardar(String idDepto, String nombDepto, String zonaGeografica, String creo, Date fechaCreo, String modifico, Date fechaModifico){
 		Departamento departamento = daoDepartamento.daDepartamentoById(idDepto);
 				
 		if (departamento == null) {
 			departamento = new Departamento(idDepto, nombDepto, zonaGeografica);     //Ver lo de la auditoria
+			departamento.setUsuarioCreacion(creo);
+			departamento.setFechaCreacion(fechaCreo);
+			departamento.setUsuarioModificacion(modifico);
+			departamento.setFechaModificacion(fechaModifico);
 			daoDepartamento.guardaActualiza(departamento);
 			return true;
 		} else
