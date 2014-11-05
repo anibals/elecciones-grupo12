@@ -51,7 +51,11 @@
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.TipoMiembro"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Urna"/>
+
+        <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Votacion"/>
+        <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.TipoMiembro"/>
+
 
     </session-factory>
 
