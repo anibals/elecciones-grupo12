@@ -11,8 +11,7 @@ public class CtrlPartidoPolitico {
 	public boolean guardar(String idPartidoPolitico, String nombrePartido,
 			String fechaFundacion, String secretarioGeneral)
 			throws ParseException {
-		PartidoPolitico partido = daoPartidoPolitico
-				.daPartidoPoliticoById(idPartidoPolitico);
+		PartidoPolitico partido = daoPartidoPolitico.daPartidoPoliticoById(idPartidoPolitico);
 		if (partido == null) {
 			partido = new PartidoPolitico(idPartidoPolitico, nombrePartido,
 					fechaFundacion, secretarioGeneral);
@@ -28,8 +27,7 @@ public class CtrlPartidoPolitico {
 
 	public boolean eliminar(String idPartidoPolitico) {
 		if (daoPartidoPolitico.daPartidoPoliticoById(idPartidoPolitico) != null) {
-			PartidoPolitico partido = daoPartidoPolitico
-					.daPartidoPoliticoById(idPartidoPolitico);
+			PartidoPolitico partido = daoPartidoPolitico.daPartidoPoliticoById(idPartidoPolitico);
 			daoPartidoPolitico.eliminar(partido);
 			return true;
 		} else

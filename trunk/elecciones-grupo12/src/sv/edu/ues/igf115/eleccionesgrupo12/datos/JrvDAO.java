@@ -5,6 +5,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+
+
+
+
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Jrv;
 import sv.edu.ues.igf115.eleccionesgrupo12.utilidades.*;
 
@@ -45,5 +49,28 @@ public void guardaActualiza(Jrv jrv) {
 }
 
 
+
+public void eliminarJrv(Jrv jrv) {
+	try {
+		iniciaOperacion();
+		sesion.delete(jrv);
+		tx.commit();
+
+		sesion.flush();
+	} catch (HibernateException he) {
+		manejaExcepcion(he);
+		throw he;
+	} finally {
+		sesion.close();
+	}
+}
+
+public Jrv daJrv(String idjrv) {
+	sesion = sessionFactory.openSession();
+	// Retorna la instancia persistente de la clase por medio del atributo identidad
+	Jrv id = (Jrv) sesion.get(Jrv.class,idjrv);
+	sesion.close();
+	return id;
+}
 
 }
