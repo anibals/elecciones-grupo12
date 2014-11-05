@@ -1,17 +1,40 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-public class TipoMiembro {
-
+@Entity
+@Table(name="TipoMiembro", catalog="", schema="")
+@NamedQuery(name = "TipoMiembro.findAll", query = "SELECT t FROM TipoMiembro t")
+public class TipoMiembro  implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "id_tipomiembro")
 	private String idTipoMiembro;
+	
+	@Basic(optional = false)
+	@Column(name = "descripcion")
 	private String descripcion;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "tipoMiembro" )
+	private List<MiembroJRV> miembrojrvList;
 	
 	
 	//columnas auditoria

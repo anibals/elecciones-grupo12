@@ -1,19 +1,52 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-public class Departamento {
-
+@Entity
+@Table(name = "Departamento", catalog = "elecciones2014", schema = "")
+@NamedQueries({
+@NamedQuery(name = "Departamento.findAll", query = "SELECT d FROM Departamento d"),
+@NamedQuery(name = "Departamento.findByNombreDepto", query = "SELECT d FROM Departamento d WHERE d.nomb_depto = :nombDepto") })
+public class Departamento implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "id_depto")
 	private String idDepto;
+	
+	@Basic(optional = false)
+	@Column(name = "nom_depto")
 	private String nombDepto;
+	
+	@Basic(optional = false)
+	@Column(name = "zona_geografica")
 	private String zonaGeografica;
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "Departamento" )
+	private List<Municipio> municipioList;
 	
+	
+	
+	//auditoria
 	@Basic(optional=true)
 	@Column(name="usercrea")
 	private String usuarioCreacion;
@@ -38,16 +71,20 @@ public class Departamento {
 		
 	}
 	
+		
 	
-	public Departamento(String idDepto, String nombDepto, String zonaGeografica) {
+	public Departamento(String idDepto, String nombDepto,
+			String zonaGeografica) {
 		super();
 		this.idDepto = idDepto;
 		this.nombDepto = nombDepto;
 		this.zonaGeografica = zonaGeografica;
 	}
 
-	
-	
+
+
+
+
 	//get y set
 	
 	public String getIdDepto() {
@@ -105,5 +142,17 @@ public class Departamento {
 	public void setFechaModificacion(Date fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
 	}
+
+
+	public List<Municipio> getMunicipioList() {
+		return municipioList;
+	}
+
+
+	public void setMunicipioList(List<Municipio> municipioList) {
+		this.municipioList = municipioList;
+	}
+	
+	
 	
 }
