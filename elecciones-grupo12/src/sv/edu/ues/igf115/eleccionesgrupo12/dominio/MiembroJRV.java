@@ -2,9 +2,13 @@ package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="MiembroJRV", catalog="elecciones2014", schema="")
 public class MiembroJRV {
 	
 	@Id
@@ -25,14 +29,22 @@ public class MiembroJRV {
 	@Column(name="apellido_paterno")
 	private String apellidoPaterno;
 	
-	//@OneToOne
-	//private JRV jrv;
+	@OneToOne
+	private Jrv jrv;
 		
-	//@OneToOne
-	//private TipoMiembro tipoMiembro;
+	@OneToOne
+	private TipoMiembro tipoMiembro;
 	
 	public MiembroJRV(){
 		
+	}
+	
+	public MiembroJRV(String id, String nombres, String apPaterno, String apMaterno)
+	{
+		this.idMiembroJrv = id;
+		this.nombres = nombres;
+		this.apellidoPaterno = apPaterno;
+		this.apellidoMaterno = apMaterno;
 	}
 		
 

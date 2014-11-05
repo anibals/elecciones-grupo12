@@ -59,8 +59,7 @@ public class MiembroJRVDAO {
 
 	public MiembroJRV daMiembroJRVById(String idMiembroJRV) {
 		sesion = sessionFactory.openSession();
-		MiembroJRV miembroJRV = (MiembroJRV) sesion.get(MiembroJRV.class,
-				idMiembroJRV);
+		MiembroJRV miembroJRV = (MiembroJRV) sesion.get(MiembroJRV.class, idMiembroJRV);
 		sesion.close();
 		return miembroJRV;
 	}
