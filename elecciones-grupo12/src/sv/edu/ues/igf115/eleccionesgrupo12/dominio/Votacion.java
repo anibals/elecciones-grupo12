@@ -1,22 +1,47 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-public class Votacion {
-
+@Entity
+@Table(name = "Votacion", catalog = "elecciones2014", schema = "")
+@NamedQuery(name = "Votacion.findAll", query = "SELECT v FROM Votacion v")
+public class Votacion implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "id_votacion")
 	private BigDecimal idVotacion;
+	
+	@Basic(optional = false)
+	@Column(name = "cant_votos_validos")
 	private BigDecimal cantVotosValidos;
-	private BigDecimal idUrna;
-	private String idPartidoPolitico;
+	
+	@JoinColumn(name = "Urna", referencedColumnName = "id_urna")
+	@ManyToOne(optional = false)
+	private Urna urna;
+	
+	@JoinColumn(name = "PartidoPolitico", referencedColumnName = "id_partidopolitico")
+	@ManyToOne(optional = false)
+	private PartidoPolitico partido;
+	
+	
 	
 	//columnas de auditoria
 	
@@ -42,16 +67,19 @@ public class Votacion {
 		
 	}
 	
+	
+	//set y get
+
 	public Votacion(BigDecimal idVotacion, BigDecimal cantVotosValidos,
-			BigDecimal idUrna, String idPartidoPolitico) {
+			Urna urna, PartidoPolitico partido) {
 		super();
 		this.idVotacion = idVotacion;
 		this.cantVotosValidos = cantVotosValidos;
-		this.idUrna = idUrna;
-		this.idPartidoPolitico = idPartidoPolitico;
+		this.urna = urna;
+		this.partido = partido;
 	}
-	
-	//set y get
+
+
 
 	public BigDecimal getIdVotacion() {
 		return idVotacion;
@@ -70,23 +98,31 @@ public class Votacion {
 		this.cantVotosValidos = cantVotosValidos;
 	}
 
-	public BigDecimal getIdUrna() {
-		return idUrna;
-	}
-
-	public void setIdUrna(BigDecimal idUrna) {
-		this.idUrna = idUrna;
-	}
-
-	public String getIdPartidoPolitico() {
-		return idPartidoPolitico;
-	}
-
-	public void setIdPartidoPolitico(String idPartidoPolitico) {
-		this.idPartidoPolitico = idPartidoPolitico;
-	}
-
 	
+	public Urna getUrna() {
+		return urna;
+	}
+
+
+
+	public void setUrna(Urna urna) {
+		this.urna = urna;
+	}
+
+
+
+	public PartidoPolitico getPartido() {
+		return partido;
+	}
+
+
+
+	public void setPartido(PartidoPolitico partido) {
+		this.partido = partido;
+	}
+
+
+
 	public String getUsuarioCreacion() {
 		return usuarioCreacion;
 	}
