@@ -12,7 +12,7 @@
         <property name="connection.url">jdbc:mysql://www.db4free.net:3306/elecciones2014</property>
         <property name="connection.username">g12igf2014</property>
         <property name="connection.password">g12igf2014*</property>
-
+        
         <!-- Use the C3P0 connection pool. -->
         <property name="c3p0.min_size">3</property>
         <property name="c3p0.max_size">5</property>
@@ -49,9 +49,9 @@
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Municipio"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.PadronElectoral"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico"/>
+        <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Roles"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.TipoMiembro"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Urna"/>
-
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Votacion"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.TipoMiembro"/>
