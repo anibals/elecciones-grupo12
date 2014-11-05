@@ -29,8 +29,7 @@ private Departamento iddepto;
 @Column(name = "id_municipio")
 private Municipio idmunicipio;
 
-@Basic(optional = false)
-@Column(name = "DUI")
+
 private PadronElectoral dui;
 
 
