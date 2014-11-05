@@ -4,6 +4,11 @@ package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento;
@@ -12,11 +17,15 @@ import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento;
 @Table(name="Municipio", catalog="elecciones2014", schema="")
 public class Municipio {
 	
-	
+	@ManyToOne
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Departamento id_depto;
 	
-	@Basic(optional=false)
-	@Column(name="id_municipio")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "id_municipio")
 	private Municipio municipio;
 	
 	@Basic(optional=false)

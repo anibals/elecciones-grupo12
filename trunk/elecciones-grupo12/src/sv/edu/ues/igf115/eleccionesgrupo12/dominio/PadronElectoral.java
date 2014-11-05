@@ -43,8 +43,10 @@ public class PadronElectoral {
 	@Column(name="estado_votacion")
 	private String estadoVotacion;
 	
-	@Basic(optional=false)
-	@Column(name="id_urna")
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@Column(name = "id_urna")	
 	private Urna idUrna;
 	
 	@Basic(optional=true)
