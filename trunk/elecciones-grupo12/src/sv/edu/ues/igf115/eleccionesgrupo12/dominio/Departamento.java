@@ -8,6 +8,7 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,9 +21,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Departamento", catalog = "elecciones2014", schema = "")
-@NamedQueries({
+/*@NamedQueries({
 @NamedQuery(name = "Departamento.findAll", query = "SELECT d FROM Departamento d"),
-@NamedQuery(name = "Departamento.findByNombreDepto", query = "SELECT d FROM Departamento d WHERE d.nomb_depto = :nombDepto") })
+@NamedQuery(name = "Departamento.findByNombreDepto", query = "SELECT d FROM Departamento d WHERE d.nomb_depto = :nombDepto") })*/
 public class Departamento implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -41,7 +42,9 @@ public class Departamento implements Serializable {
 	@Column(name = "zona_geografica")
 	private String zonaGeografica;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento" )
+	//@OneToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
+	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento" )
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private List<Municipio> municipioList;
 	
 	

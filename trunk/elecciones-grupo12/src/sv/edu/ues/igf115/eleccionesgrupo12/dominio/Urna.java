@@ -2,8 +2,10 @@ package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -13,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,10 +30,6 @@ public class Urna implements Serializable{
 	@Basic(optional=false)
 	@Column(name="id_urna")
 	int idUrna;
-	
-	@JoinColumn(name="id_municipio", referencedColumnName="id_municipio")
-	@ManyToOne(optional = false, fetch=FetchType.LAZY)
-	private Municipio municipio;
 	
 	@Basic(optional=false)
 	@Column(name="Num_Junta")
@@ -52,6 +51,24 @@ public class Urna implements Serializable{
 	@Column(name="cant_votos_no_valid")
 	String cantidadVotosNoValidos;
 
+	
+	//RElACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	@JoinColumn(name="id_municipio", referencedColumnName="id_municipio")
+	@ManyToOne(optional = false)
+	private Municipio municipio;
+	/*
+	@ManyToOne
+	@JoinColumn(name="municipioPK",referencedColumnName="municipioPK")
+	private Municipio municipio;*/
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<PadronElectoral> padronelectoralList;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<Votacion> votacionList;
+	
+	
+	//RElACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	public Urna()
 	{
 		
@@ -104,6 +121,24 @@ public class Urna implements Serializable{
 	public void setCantidadVotosNoValidos(String cantidadVotosNoValidos) {
 		this.cantidadVotosNoValidos = cantidadVotosNoValidos;
 	}
+
+	public List<PadronElectoral> getPadronelectoralList() {
+		return padronelectoralList;
+	}
+
+	public void setPadronelectoralList(List<PadronElectoral> padronelectoralList) {
+		this.padronelectoralList = padronelectoralList;
+	}
+
+	public List<Votacion> getVotacionList() {
+		return votacionList;
+	}
+
+	public void setVotacionList(List<Votacion> votacionList) {
+		this.votacionList = votacionList;
+	}
+	
+	
 	
 	
 }

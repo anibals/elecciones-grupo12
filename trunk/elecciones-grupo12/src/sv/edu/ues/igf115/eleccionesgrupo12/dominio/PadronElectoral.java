@@ -1,21 +1,28 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="PadronElectoral", catalog="elecciones2014", schema="")
-public class PadronElectoral {
-
+public class PadronElectoral implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Basic(optional=false)
@@ -45,6 +52,21 @@ public class PadronElectoral {
 	@Basic(optional = false)
 	@Column(name = "id_urna")	
 	private Urna idUrna;
+	
+	//RELACION<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<Jrv> jrvList;
+	
+	//@JoinColumn(name = "id_urna")    //pienso que puede ser solo asi
+	@JoinColumn(name = "id_urna", referencedColumnName = "id_urna")
+	@ManyToOne(optional = false)
+	private Urna urna;
+	
+	//RELACION<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	
+	
+	
 	
 	@Basic(optional=true)
 	@Column(name="usercrea")
@@ -183,6 +205,34 @@ public class PadronElectoral {
 
 	public void setFechaModificacion(Date fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
+	}
+
+
+
+
+	public List<Jrv> getJrvList() {
+		return jrvList;
+	}
+
+
+
+
+	public void setJrvList(List<Jrv> jrvList) {
+		this.jrvList = jrvList;
+	}
+
+
+
+
+	public Urna getUrna() {
+		return urna;
+	}
+
+
+
+
+	public void setUrna(Urna urna) {
+		this.urna = urna;
 	}
 	
 	

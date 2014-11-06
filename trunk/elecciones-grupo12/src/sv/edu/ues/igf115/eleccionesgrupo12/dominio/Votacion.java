@@ -33,15 +33,19 @@ public class Votacion implements Serializable {
 	@Column(name = "cant_votos_validos")
 	private BigDecimal cantVotosValidos;
 	
-	@JoinColumn(name = "Urna", referencedColumnName = "id_urna")
+	
+	
+	//RElACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	
+	@JoinColumn(name = "id_urna", referencedColumnName = "id_urna")
 	@ManyToOne(optional = false)
 	private Urna urna;
 	
-	@JoinColumn(name = "PartidoPolitico", referencedColumnName = "id_partidopolitico")
+	@JoinColumn(name = "id_partidopolitico", referencedColumnName = "id_partidopolitico")
 	@ManyToOne(optional = false)
 	private PartidoPolitico partido;
 	
-	
+	//RElACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	
 	//columnas de auditoria
 	

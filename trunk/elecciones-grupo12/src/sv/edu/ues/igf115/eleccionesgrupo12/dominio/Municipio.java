@@ -21,7 +21,8 @@ import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento;
 
 @Entity
 @Table(name="Municipio", catalog="elecciones2014", schema="")
-public class Municipio {
+public class Municipio implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId
 	private MunicipioPk idMunicipio;

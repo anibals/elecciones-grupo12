@@ -1,9 +1,13 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PadronElectoral;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,14 +17,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
 @Entity
 @Table(name = "JRV", catalog = "elecciones2014", schema = "")
-public class Jrv {
-	
+public class Jrv implements Serializable {
+	private static final long serialVersionUID = 1L;
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 @Basic(optional = false)
@@ -28,13 +33,29 @@ public class Jrv {
 private int id;
 
 
+
+
+//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+private List<MiembroJRV> miembroList;
+
+@ManyToOne
+@JoinColumn(name="dui",referencedColumnName="dui")
+private PadronElectoral dui;
+
 @ManyToOne(fetch=FetchType.LAZY)
 @JoinColumn(name="id_municipio",referencedColumnName="idMunicipio")
 private Municipio municipio;
 
+
+/*
 @ManyToOne
-@JoinColumn(name="DUI",referencedColumnName="dui")
-private PadronElectoral dui;
+@JoinColumn(name="municipioPK",referencedColumnName="municipioPK")
+private Municipio municipio;*/
+//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+
 
 @Basic(optional = false)
 @Column(name = "usercrea")
@@ -51,7 +72,6 @@ private String usermodifica;
 @Basic(optional = false)
 @Column(name = "fechamodificacion")
 private Date fechamodificacion;
-
 
 
 public int getId() {
