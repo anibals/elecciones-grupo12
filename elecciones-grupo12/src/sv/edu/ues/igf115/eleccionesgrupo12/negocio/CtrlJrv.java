@@ -10,13 +10,11 @@ public class CtrlJrv {
 
 	public void insertarJrv(String depto, String municipio, String dui) {
 
-		//Jrv jrv = new Jrv();
+       Jrv jrv = new Jrv();
 
-		//jrv.getIddepto();
-		// jrv.setIdmunicipio(municipio);
-		// jrv.setDui(dui);
+	
 
-		//daojrv.guardaActualiza(jrv);
+		daojrv.guardaActualiza(jrv);
 	}
 
 	public boolean eliminarJrv(String idjrv) {

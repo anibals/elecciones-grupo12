@@ -67,7 +67,7 @@ public class Departamento implements Serializable {
 	//constructores
 	
 	
-	private Departamento() {
+	public Departamento() {
 		
 	}
 	
