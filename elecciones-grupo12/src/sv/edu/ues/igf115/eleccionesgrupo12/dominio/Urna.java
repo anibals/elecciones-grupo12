@@ -21,11 +21,11 @@ public class Urna {
 	@Column(name="id_urna")
 	int idUrna;
 	
-	//@OneToOne
-	//Municipio municipio;
+	@OneToOne
+	Municipio municipio;
 	
-	//@OneToOne
-	//Departamento departamento;
+	@OneToOne
+	Departamento departamento;
 	
 	@Basic(optional=false)
 	@Column(name="Num_Junta")

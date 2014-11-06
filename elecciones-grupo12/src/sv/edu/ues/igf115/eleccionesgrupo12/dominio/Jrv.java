@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -24,17 +25,20 @@ public class Jrv {
 @Column(name = "id_jrv")	
 private int id;
 
-@ManyToOne
+/*@ManyToOne
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Departamento iddepto;
+private Departamento iddepto;*/
 
-@ManyToOne
+@JoinColumn(name="id_municipio", referencedColumnName="id_municipio")
+@ManyToOne(optional=false)
 private Municipio idmunicipio;
 
-@ManyToOne
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+//@Id
+//@GeneratedValue(strategy = GenerationType.IDENTITY)
+@JoinColumn(name="dui", referencedColumnName="dui")
+@ManyToOne(optional=false)
 private PadronElectoral dui;
 
 @Basic(optional = false)
@@ -64,7 +68,7 @@ public void setId(int id) {
 	this.id = id;
 }
 
-
+/*
 public Departamento getIddepto() {
 	return iddepto;
 }
@@ -72,7 +76,7 @@ public Departamento getIddepto() {
 
 public void setIddepto(Departamento iddepto) {
 	this.iddepto = iddepto;
-}
+}*/
 
 
 public Municipio getIdmunicipio() {
@@ -149,7 +153,7 @@ public Jrv(int id, Departamento iddepto, Municipio idmunicipio,
 		String usermodifica, Date fechamodificacion) {
 	super();
 	this.id = id;
-	this.iddepto = iddepto;
+	//this.iddepto = iddepto;
 	this.idmunicipio = idmunicipio;
 	this.dui = dui;
 	this.usercrea = usercrea;

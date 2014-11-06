@@ -14,7 +14,7 @@ public class CtrlMiembroJrv {
 	{
 		MiembroJRV miembro = daoMiembroJrv.daMiembroJRVById(id);
 		if (miembro == null) {
-			//TipoMiembro tipo = new TipoMiembro();
+			TipoMiembro tipo = new TipoMiembro();
 			Jrv jrv = new Jrv();
 			jrv.setId(Integer.parseInt(idJrv));
 			miembro = new MiembroJRV(id, nombres,apPaterno, apMaterno);

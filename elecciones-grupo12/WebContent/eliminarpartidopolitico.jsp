@@ -1,13 +1,14 @@
+<%@page import="sv.edu.ues.igf115.eleccionesgrupo12.negocio.CtrlMiembroJrv"%>
 <%@page import="sv.edu.ues.igf115.eleccionesgrupo12.negocio.CtrlPartidoPolitico"%>
 <%@page import="sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%
-String idPartidoPolitico = request.getParameter("idPartidoPolitico");
+String idMiembroJrv = request.getParameter("idMiembroJrv");
 
-CtrlPartidoPolitico ctrlPartidoPolitico = new CtrlPartidoPolitico();
-boolean exito = ctrlPartidoPolitico.eliminar( idPartidoPolitico);
+CtrlMiembroJrv ctrlMiembroJrv = new CtrlMiembroJrv();
+boolean exito = ctrlMiembroJrv.eliminar(idMiembroJrv);
 String mensaje;
 if (exito) {
 	mensaje = "Se realizó la eliminación";
@@ -19,7 +20,7 @@ if (exito) {
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Eliminar partido político</title>
+<title>Eliminar miembro de JRV</title>
 </head>
 <body>
 	<%= mensaje %>
