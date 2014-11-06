@@ -6,10 +6,12 @@ import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PadronElectoral;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -25,20 +27,13 @@ public class Jrv {
 @Column(name = "id_jrv")	
 private int id;
 
-/*@ManyToOne
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Departamento iddepto;*/
 
-@JoinColumn(name="id_municipio", referencedColumnName="id_municipio")
-@ManyToOne(optional=false)
-private Municipio idmunicipio;
+@ManyToOne(fetch=FetchType.LAZY)
+@JoinColumn(name="id_municipio",referencedColumnName="idMunicipio")
+private Municipio municipio;
 
-
-//@Id
-//@GeneratedValue(strategy = GenerationType.IDENTITY)
-@JoinColumn(name="dui", referencedColumnName="dui")
-@ManyToOne(optional=false)
+@ManyToOne
+@JoinColumn(name="DUI",referencedColumnName="dui")
 private PadronElectoral dui;
 
 @Basic(optional = false)
@@ -68,24 +63,14 @@ public void setId(int id) {
 	this.id = id;
 }
 
-/*
-public Departamento getIddepto() {
-	return iddepto;
-}
-
-
-public void setIddepto(Departamento iddepto) {
-	this.iddepto = iddepto;
-}*/
-
 
 public Municipio getIdmunicipio() {
-	return idmunicipio;
+	return municipio;
 }
 
 
 public void setIdmunicipio(Municipio idmunicipio) {
-	this.idmunicipio = idmunicipio;
+	this.municipio = idmunicipio;
 }
 
 
@@ -148,13 +133,12 @@ public Jrv(){
 }
 
 
-public Jrv(int id, Departamento iddepto, Municipio idmunicipio,
+public Jrv(int id, Municipio idmunicipio,
 		PadronElectoral dui, String usercrea, Date fechacreacion,
 		String usermodifica, Date fechamodificacion) {
 	super();
 	this.id = id;
-	//this.iddepto = iddepto;
-	this.idmunicipio = idmunicipio;
+	this.municipio = idmunicipio;
 	this.dui = dui;
 	this.usercrea = usercrea;
 	this.fechacreacion = fechacreacion;
