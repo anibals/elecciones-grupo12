@@ -35,7 +35,7 @@ public class Departamento implements Serializable {
 	private String idDepto;
 	
 	@Basic(optional = false)
-	@Column(name = "nom_depto")
+	@Column(name = "nomb_depto")
 	private String nombDepto;
 	
 	@Basic(optional = false)
