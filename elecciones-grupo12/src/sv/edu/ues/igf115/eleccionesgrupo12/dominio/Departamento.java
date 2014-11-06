@@ -44,7 +44,7 @@ public class Departamento implements Serializable {
 	
 	//@OneToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
 	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento" )
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "departamento")
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "departamento")
 	private List<Municipio> municipioList;
 	
 	

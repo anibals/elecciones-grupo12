@@ -67,7 +67,7 @@ public class Urna implements Serializable{
 	@JoinColumn(name="municipioPK",referencedColumnName="municipioPK")
 	private Municipio municipio;*/
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "urna")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "idUrna")
 	private List<PadronElectoral> padronelectoralList;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "urna")
