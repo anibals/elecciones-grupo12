@@ -7,31 +7,22 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento;
+import sv.edu.ues.igf115.eleccionesgrupo12.datos.MunicipioPk;
 
 @Entity
 @Table(name="Municipio", catalog="elecciones2014", schema="")
 public class Municipio implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@Basic(optional = false)
-	//@Column(name = "id_municipio")
-	
-	
+	@EmbeddedId
 	private MunicipioPk idMunicipio;
 	
 
@@ -66,18 +57,23 @@ public class Municipio implements Serializable {
 	*/
 	
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "municipio")
-	@JoinColumns({
+	@JoinColumn(name = "id_depto", referencedColumnName = "id_depto", insertable=false, updatable=false )
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Departamento departamento;
+	
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "municipio")
+	/*@JoinColumns({
 	    @JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
 	    @JoinColumn(name="id_depto", referencedColumnName="id_depto")
-	})
+	})*/
 	private List<Urna> urnaList;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "municipio")
-	@JoinColumns({
+	@OneToMany(cascade=CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "municipio")
+	/*@JoinColumns({
 	    @JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
 	    @JoinColumn(name="id_depto", referencedColumnName="id_depto")
-	})
+	})*/
 	private List<Jrv> jrvList;
 	//RElACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	
@@ -88,8 +84,8 @@ public class Municipio implements Serializable {
 	}
 	
 	public Municipio(String idDepto, String idMunicipio, String nombreMunicipio){
-		this.idMunicipio.idDepartamento = idDepto;
-		this.idMunicipio.idMunicipio = idMunicipio;
+		//this.idMunicipio.idDepartamento = idDepto;
+		//this.idMunicipio.idMunicipio = idMunicipio;
 		this.nomb_municipio = nombreMunicipio;
 	}
 
@@ -120,16 +116,19 @@ public class Municipio implements Serializable {
 		
 }
 
-	@Embeddable
+	/*@Embeddable
     class MunicipioPk implements Serializable{
 
 	
 	private static final long serialVersionUID = 1L;
-	
-	@Column(name="id_depto")
+	 //@ManyToOne
+	   //@JoinColumn(name="id_depto", referencedColumnName = "id_depto")
+	@Column(name="id_depto", insertable=false, updatable=false)
 	String idDepartamento;
+	
 	
 	@Column(name="id_municipio")
 	String idMunicipio;
 	
 }
+*/

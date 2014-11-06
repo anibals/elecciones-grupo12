@@ -57,7 +57,7 @@ public class PadronElectoral implements Serializable {
 	
 	//RELACION<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "padronElectoral")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "dui")
 	private List<Jrv> jrvList;
 	
 	//@JoinColumn(name = "id_urna")    //pienso que puede ser solo asi
