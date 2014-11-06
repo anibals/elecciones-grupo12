@@ -44,8 +44,11 @@ private List<MiembroJRV> miembroList;
 @JoinColumn(name="dui",referencedColumnName="dui")
 private PadronElectoral dui;
 
-@ManyToOne(fetch=FetchType.LAZY)
-@JoinColumn(name="id_municipio",referencedColumnName="idMunicipio")
+@ManyToOne
+@JoinColumns({
+    @JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
+    @JoinColumn(name="id_depto", referencedColumnName="id_depto")
+})
 private Municipio municipio;
 
 

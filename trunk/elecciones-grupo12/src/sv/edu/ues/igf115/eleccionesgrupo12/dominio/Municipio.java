@@ -2,8 +2,10 @@ package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
@@ -15,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento;
@@ -44,12 +47,44 @@ public class Municipio implements Serializable {
 	@Column(name="nomb_municipio")
 	private String nomb_municipio;
 	
+	
+	
+	//RElACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	/*
+	@JoinColumn(name = "id_urna", referencedColumnName = "id_urna")
+	@ManyToOne(optional = false)
+	private Urna urna;
+	
+	@JoinColumn(name = "id_partidopolitico", referencedColumnName = "id_partidopolitico")
+	@ManyToOne(optional = false)
+	private PartidoPolitico partido;
+	
+	*/
+	
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumns({
+	    @JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
+	    @JoinColumn(name="id_depto", referencedColumnName="id_depto")
+	})
+	private List<Urna> urnaList;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinColumns({
+	    @JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
+	    @JoinColumn(name="id_depto", referencedColumnName="id_depto")
+	})
+	private List<Jrv> jrvList;
+	//RElACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	
+	
+	
 	public Municipio() {
 		
 	}
 	
 	public Municipio(String idDepto, String idMunicipio, String nombreMunicipio){
-		this.idMunicipio.departamento = idDepto;
+		this.idMunicipio.idDepartamento = idDepto;
 		this.idMunicipio.idMunicipio = idMunicipio;
 		this.nomb_municipio = nombreMunicipio;
 	}
@@ -84,15 +119,13 @@ public class Municipio implements Serializable {
 	@Embeddable
     class MunicipioPk implements Serializable{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	
-	@Column(name="id_depto")
-	String departamento;
+	//@Column(name="id_depto")
+	String idDepartamento;
 	
-	@Column(name="id_municipio")
+	//@Column(name="id_municipio")
 	String idMunicipio;
 	
 }
