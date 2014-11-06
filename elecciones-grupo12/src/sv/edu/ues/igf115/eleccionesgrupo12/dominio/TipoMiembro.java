@@ -25,7 +25,7 @@ public class TipoMiembro  implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "id_tipomiembro")
 	private String idTipoMiembro;
@@ -36,7 +36,7 @@ public class TipoMiembro  implements Serializable {
 	
 	//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	
-		@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+		@OneToMany(cascade=CascadeType.ALL, mappedBy = "tipoMiembro")
 		private List<MiembroJRV> miembrojrvList;
 	
 	//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<

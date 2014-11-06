@@ -27,7 +27,11 @@ import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento;
 public class Municipio implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
-	@EmbeddedId
+	@Id
+	@Basic(optional = false)
+	//@Column(name = "id_municipio")
+	
+	
 	private MunicipioPk idMunicipio;
 	
 
@@ -62,14 +66,14 @@ public class Municipio implements Serializable {
 	*/
 	
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "municipio")
 	@JoinColumns({
 	    @JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
 	    @JoinColumn(name="id_depto", referencedColumnName="id_depto")
 	})
 	private List<Urna> urnaList;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "municipio")
 	@JoinColumns({
 	    @JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
 	    @JoinColumn(name="id_depto", referencedColumnName="id_depto")
@@ -122,10 +126,10 @@ public class Municipio implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
-	//@Column(name="id_depto")
+	@Column(name="id_depto")
 	String idDepartamento;
 	
-	//@Column(name="id_municipio")
+	@Column(name="id_municipio")
 	String idMunicipio;
 	
 }

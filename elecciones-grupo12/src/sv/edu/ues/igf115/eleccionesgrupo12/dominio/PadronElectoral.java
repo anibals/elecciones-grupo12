@@ -49,19 +49,21 @@ public class PadronElectoral implements Serializable {
 	@Column(name="estado_votacion")
 	private String estadoVotacion;
 	
+	/*
 	@Basic(optional = false)
 	@Column(name = "id_urna")	
 	private Urna idUrna;
+	*/
 	
 	//RELACION<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "padronElectoral")
 	private List<Jrv> jrvList;
 	
 	//@JoinColumn(name = "id_urna")    //pienso que puede ser solo asi
 	@JoinColumn(name = "id_urna", referencedColumnName = "id_urna")
 	@ManyToOne(optional = false)
-	private Urna urna;
+	private Urna idUrna;
 	
 	//RELACION<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	
@@ -224,18 +226,6 @@ public class PadronElectoral implements Serializable {
 
 
 
-	public Urna getUrna() {
-		return urna;
-	}
-
-
-
-
-	public void setUrna(Urna urna) {
-		this.urna = urna;
-	}
-	
-	
 	
 	
 }

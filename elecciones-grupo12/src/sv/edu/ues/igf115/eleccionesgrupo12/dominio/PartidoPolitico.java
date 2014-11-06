@@ -42,7 +42,7 @@ public class PartidoPolitico implements Serializable {
 	
 	
 															//RELACION<<<<<<<<<<<<<<<<<<<<<
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Votacion> votacionList;
 	
 	
