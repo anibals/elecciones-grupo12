@@ -18,9 +18,8 @@ public class PadronElectoral {
 
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional=false)
-	@Column(name="DUI")
+	@Column(name="dui")
 	private String dui;
 	
 	@Basic(optional=false)
@@ -43,8 +42,6 @@ public class PadronElectoral {
 	@Column(name="estado_votacion")
 	private String estadoVotacion;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "id_urna")	
 	private Urna idUrna;

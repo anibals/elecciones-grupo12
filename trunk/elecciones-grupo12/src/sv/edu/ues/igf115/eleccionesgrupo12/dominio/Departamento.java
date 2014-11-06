@@ -41,7 +41,7 @@ public class Departamento implements Serializable {
 	@Column(name = "zona_geografica")
 	private String zonaGeografica;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "Departamento" )
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento" )
 	private List<Municipio> municipioList;
 	
 	

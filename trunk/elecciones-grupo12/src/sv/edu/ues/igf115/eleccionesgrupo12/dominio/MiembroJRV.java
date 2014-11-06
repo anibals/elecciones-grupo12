@@ -3,8 +3,10 @@ package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -12,7 +14,6 @@ import javax.persistence.Table;
 public class MiembroJRV {
 	
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="id_miembrojrv")
 	private String idMiembroJrv;
@@ -28,11 +29,13 @@ public class MiembroJRV {
 	@Basic(optional=false)
 	@Column(name="apellido_paterno")
 	private String apellidoPaterno;
-	
-	@OneToOne
+
+	@JoinColumn(name="id_jrv", referencedColumnName="id_jrv")
+	@ManyToOne(optional = false)
 	private Jrv jrv;
-		
-	@OneToOne
+
+	@JoinColumn(name="id_tipomiembro", referencedColumnName="id_tipomiembro")
+	@ManyToOne(optional = false)
 	private TipoMiembro tipoMiembro;
 	
 	public MiembroJRV(){

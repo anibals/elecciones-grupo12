@@ -4,29 +4,27 @@ package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-
-import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento;
 
 @Entity
 @Table(name="Municipio", catalog="elecciones2014", schema="")
 public class Municipio {
 	
-	@ManyToOne
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Departamento id_depto;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Basic(optional = false)
+	@JoinColumn(name="id_depto", referencedColumnName="id_depto")
+	@ManyToOne(optional = false)
+	private Departamento id_depto;
+	
+	
+	@Id
 	@Basic(optional = false)
 	@Column(name = "id_municipio")
-	private Municipio municipio;
+	private String municipio;
 	
 	@Basic(optional=false)
 	@Column(name="nomb_municipio")
@@ -38,7 +36,7 @@ public class Municipio {
 	
 	
 
-	public Municipio(Departamento id_depto, Municipio municipio,
+	public Municipio(Departamento id_depto, String municipio,
 			String nomb_municipio) {
 		super();
 		this.id_depto = id_depto;
@@ -54,11 +52,11 @@ public class Municipio {
 		this.id_depto = id_depto;
 	}
 
-	public Municipio getMunicipio() {
+	public String getMunicipio() {
 		return municipio;
 	}
 
-	public void setMunicipio(Municipio municipio) {
+	public void setMunicipio(String municipio) {
 		this.municipio = municipio;
 	}
 
