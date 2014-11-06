@@ -31,7 +31,7 @@ public class MiembroJRV {
 	private String apellidoPaterno;
 
 	@JoinColumn(name="id_jrv", referencedColumnName="id_jrv")
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = false, fetch=FetchType.LAZY)
 	private Jrv jrv;
 
 	@JoinColumn(name="id_tipomiembro", referencedColumnName="id_tipomiembro")

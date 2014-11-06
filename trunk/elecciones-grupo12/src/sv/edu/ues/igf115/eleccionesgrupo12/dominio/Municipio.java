@@ -18,7 +18,7 @@ public class Municipio {
 	@Basic(optional = false)
 	@JoinColumn(name="id_depto", referencedColumnName="id_depto")
 	@ManyToOne(optional = false)
-	private Departamento id_depto;
+	private Departamento departamento;
 	
 	
 	@Id
@@ -39,17 +39,17 @@ public class Municipio {
 	public Municipio(Departamento id_depto, String municipio,
 			String nomb_municipio) {
 		super();
-		this.id_depto = id_depto;
+		this.departamento = id_depto;
 		this.municipio = municipio;
 		this.nomb_municipio = nomb_municipio;
 	}
 
 	public Departamento getId_depto() {
-		return id_depto;
+		return departamento;
 	}
 
 	public void setId_depto(Departamento id_depto) {
-		this.id_depto = id_depto;
+		this.departamento = id_depto;
 	}
 
 	public String getMunicipio() {

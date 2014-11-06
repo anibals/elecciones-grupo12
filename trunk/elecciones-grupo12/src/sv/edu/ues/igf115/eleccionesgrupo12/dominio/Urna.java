@@ -1,31 +1,36 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Urna", catalog="", schema="")
-public class Urna {
+public class Urna implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="id_urna")
 	int idUrna;
 	
-	@OneToOne
-	Municipio municipio;
-	
-	@OneToOne
-	Departamento departamento;
+	@JoinColumn(name="id_municipio", referencedColumnName="id_municipio")
+	@ManyToOne(optional = false, fetch=FetchType.LAZY)
+	private Municipio municipio;
 	
 	@Basic(optional=false)
 	@Column(name="Num_Junta")

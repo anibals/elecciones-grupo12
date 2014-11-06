@@ -57,7 +57,7 @@ public class UrnaDAO {
 		}
 	}
 
-	public Urna daUrnaById(String idUrna) {
+	public Urna daUrnaById(int idUrna) {
 		sesion = sessionFactory.openSession();
 		Urna urna = (Urna) sesion.get(Urna.class, idUrna);
 		sesion.close();
