@@ -1,20 +1,26 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="PartidoPolitico", catalog="elecciones2014", schema="")
-public class PartidoPolitico {
+public class PartidoPolitico implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	//@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +39,13 @@ public class PartidoPolitico {
 	@Basic(optional=false)
 	@Column(name="nomb_secret_gral")
 	private String nombreSecretarioGeneral;
+	
+	
+															//RELACION<<<<<<<<<<<<<<<<<<<<<
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<Votacion> votacionList;
+	
+	
 	
 	@Basic(optional=true)
 	@Column(name="usercrea")
@@ -126,6 +139,15 @@ public class PartidoPolitico {
 		this.fechaModificacion = fechaModificacion;
 	}
 
+	public List<Votacion> getVotacionList() {
+		return votacionList;
+	}
+
+	public void setVotacionList(List<Votacion> votacionList) {
+		this.votacionList = votacionList;
+	}
+
+	
 	
 	
 }

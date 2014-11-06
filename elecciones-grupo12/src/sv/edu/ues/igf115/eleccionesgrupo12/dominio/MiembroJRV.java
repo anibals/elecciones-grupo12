@@ -1,5 +1,7 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
+import java.io.Serializable;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,7 +13,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="MiembroJRV", catalog="elecciones2014", schema="")
-public class MiembroJRV {
+public class MiembroJRV implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Basic(optional=false)
@@ -29,16 +32,24 @@ public class MiembroJRV {
 	@Basic(optional=false)
 	@Column(name="apellido_paterno")
 	private String apellidoPaterno;
+	
+	
+//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 	@JoinColumn(name="id_jrv", referencedColumnName="id_jrv")
-	@ManyToOne(optional = false, fetch=FetchType.LAZY)
+	@ManyToOne(optional = false)
 	private Jrv jrv;
+
+	
 
 	@JoinColumn(name="id_tipomiembro", referencedColumnName="id_tipomiembro")
 	@ManyToOne(optional = false)
 	private TipoMiembro tipoMiembro;
 	
-	public MiembroJRV(){
+	//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	
+	
+	private MiembroJRV(){
 		
 	}
 	
@@ -84,6 +95,20 @@ public class MiembroJRV {
 	}
 	
 	
-	
+	public Jrv getJrv() {
+		return jrv;
+	}
+
+	public void setJrv(Jrv jrv) {
+		this.jrv = jrv;
+	}
+
+	public TipoMiembro getTipoMiembro() {
+		return tipoMiembro;
+	}
+
+	public void setTipoMiembro(TipoMiembro tipoMiembro) {
+		this.tipoMiembro = tipoMiembro;
+	}
 
 }
