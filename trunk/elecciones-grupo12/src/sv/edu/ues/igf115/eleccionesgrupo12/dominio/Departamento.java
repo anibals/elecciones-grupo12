@@ -29,7 +29,7 @@ public class Departamento implements Serializable {
 	
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
 	@Column(name = "id_depto")
 	private String idDepto;
@@ -44,7 +44,7 @@ public class Departamento implements Serializable {
 	
 	//@OneToOne(cascade={CascadeType.PERSIST,CascadeType.REMOVE})
 	//@OneToMany(cascade = CascadeType.ALL, mappedBy = "departamento" )
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "departamento")
 	private List<Municipio> municipioList;
 	
 	

@@ -27,7 +27,7 @@ public class Urna implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="id_urna")
 	int idUrna;
@@ -67,10 +67,10 @@ public class Urna implements Serializable{
 	@JoinColumn(name="municipioPK",referencedColumnName="municipioPK")
 	private Municipio municipio;*/
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "urna")
 	private List<PadronElectoral> padronelectoralList;
 	
-	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "urna")
 	private List<Votacion> votacionList;
 	
 	
