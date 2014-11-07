@@ -1,9 +1,6 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.datos;
 
-import java.util.List;
-
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -60,23 +57,6 @@ public class UrnaDAO {
 	public Urna daUrnaById(int idUrna) {
 		sesion = sessionFactory.openSession();
 		Urna urna = (Urna) sesion.get(Urna.class, idUrna);
-		sesion.close();
-		return urna;
-	}
-
-	public List<Urna> daUrnas() {
-		sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("Urnas.findAll");
-		List<Urna> urnas = query.list();
-		sesion.close();
-		return urnas;
-	}
-
-	public Urna daUrnaByNombre(String nombreUrna) {
-		sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("Urna.findByNombreUrna");
-		query.setParameter("nombreUrna", nombreUrna);
-		Urna urna = (Urna) query.uniqueResult();
 		sesion.close();
 		return urna;
 	}

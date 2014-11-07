@@ -2,11 +2,13 @@ package sv.edu.ues.igf115.eleccionesgrupo12.datos;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.MiembroJRV;
 import sv.edu.ues.igf115.eleccionesgrupo12.utilidades.HibernateUtil;
@@ -64,20 +66,13 @@ public class MiembroJRVDAO {
 		return miembroJRV;
 	}
 
-	public List<MiembroJRV> daMiembroJRVs() {
+	public List<MiembroJRV> daMiembrosJRVByJRV(int idJrv) {
 		sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("MiembroJRVs.findAll");
-		List<MiembroJRV> miembroJRVs = query.list();
+		Criteria criteria = sesion.createCriteria(MiembroJRV.class);
+		criteria.add(Restrictions.like("jrv.id", idJrv));
+		List<MiembroJRV> miembrosJRV = criteria.list();
 		sesion.close();
-		return miembroJRVs;
+		return miembrosJRV;
 	}
 
-	public MiembroJRV daMiembroJRVByNombre(String nombreMiembroJRV) {
-		sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("MiembroJRV.findByNombreMiembroJRV");
-		query.setParameter("nombreMiembroJRV", nombreMiembroJRV);
-		MiembroJRV miembroJRV = (MiembroJRV) query.uniqueResult();
-		sesion.close();
-		return miembroJRV;
-	}
 }

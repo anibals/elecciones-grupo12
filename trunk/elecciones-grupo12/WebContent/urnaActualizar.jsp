@@ -15,10 +15,10 @@
 	    boolean exito = ctrlUrna.actualizar(Integer.parseInt(idUrna), idMunicipio, idDepartamento, numJunta, presidente, secretario, votosNulos, votosNoValidos);
 	    if(exito)
 	    {
-	    	mensaje = "Se guardó la urna";
+	    	mensaje = "Se actualizó la urna";
 	    }
 	    else{
-	    	mensaje = "Ya existe esa urna";
+	    	mensaje = "No existe esa urna";
 	    }
     
     %>
@@ -26,9 +26,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Guardar urna</title>
+<title>Actualizar urna</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+	<div class="col-xs-4 col-xs-offset-4">
+		<h1>Actualizar urna</h1>
 	<%= mensaje %>
+	</div>
 </body>
 </html>
