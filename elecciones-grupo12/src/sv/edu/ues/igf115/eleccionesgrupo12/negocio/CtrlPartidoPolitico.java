@@ -21,8 +21,19 @@ public class CtrlPartidoPolitico {
 			return false;
 	}
 
-	public PartidoPolitico daPartidoPoliticoById(String idPartidoPolitico) {
-		return daoPartidoPolitico.daPartidoPoliticoById(idPartidoPolitico);
+	public PartidoPolitico daPartidoPoliticoByNombre(String nombrePartidoPolitico) {
+		return daoPartidoPolitico.daPartidoByNombre(nombrePartidoPolitico);
+	}
+
+	public boolean actualizar(String idPartidoPolitico, String nombrePartido,
+			String fechaFundacion, String secretarioGeneral) throws ParseException {
+	      if (daoPartidoPolitico.daPartidoPoliticoById(idPartidoPolitico) != null) {
+	    	  PartidoPolitico partido = new PartidoPolitico(idPartidoPolitico, nombrePartido, fechaFundacion, secretarioGeneral);
+	    	  daoPartidoPolitico.guardaActualiza(partido);
+               return true ;
+	        }
+	      else 
+	    	    return false ;
 	}
 
 	public boolean eliminar(String idPartidoPolitico) {
@@ -34,15 +45,5 @@ public class CtrlPartidoPolitico {
 			return false;
 	}
 	
-	public boolean actualizar(String idPartidoPolitico, String nombrePartido,
-			String fechaFundacion, String secretarioGeneral) throws ParseException {
-	      if (daoPartidoPolitico.daPartidoPoliticoById(idPartidoPolitico) != null) {
-	    	  PartidoPolitico partido = new PartidoPolitico(idPartidoPolitico, nombrePartido, fechaFundacion, secretarioGeneral);
-	    	  daoPartidoPolitico.guardaActualiza(partido);
-               return true ;
-	        }
-	      else 
-	    	    return false ;
- }
-
+	
 }
