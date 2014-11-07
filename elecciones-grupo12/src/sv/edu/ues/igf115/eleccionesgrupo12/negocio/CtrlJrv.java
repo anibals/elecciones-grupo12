@@ -8,10 +8,9 @@ public class CtrlJrv {
 
    private JrvDAO daojrv = new JrvDAO();
 
-	public void insertarJrv(String depto, String municipio, String dui) {
+	public void insertarJrv(String idjrv,String depto, String municipio, String dui) {
 
-       Jrv jrv = new Jrv();
-
+       
 	
 
 		daojrv.guardaActualiza(jrv);

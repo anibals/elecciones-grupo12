@@ -12,8 +12,13 @@
     
     CtrlMunicipio ctrlmunicipio=new CtrlMunicipio();
     
-    ctrlmunicipio.guardarMunicipio(iddepto, idmunicipio, nombremuni);
-    
+    boolean exito=ctrlmunicipio.guardarMunicipio(iddepto, idmunicipio, nombremuni);
+    String Mensaje;
+    if(exito){
+    	Mensaje="Se creo el municipio correctamente";
+    }else{
+    	Mensaje="El municipio ya existe";
+    }
     
     %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -23,6 +28,8 @@
 <title>Guardar Municipio</title>
 </head>
 <body>
+
+<%=Mensaje %>
 
 </body>
 </html>
