@@ -105,19 +105,3 @@ public class Municipio implements Serializable {
 		
 }
 
-	/*@Embeddable
-    class MunicipioPk implements Serializable{
-
-	
-	private static final long serialVersionUID = 1L;
-	 //@ManyToOne
-	   //@JoinColumn(name="id_depto", referencedColumnName = "id_depto")
-	@Column(name="id_depto", insertable=false, updatable=false)
-	String idDepartamento;
-	
-	
-	@Column(name="id_municipio")
-	String idMunicipio;
-	
-}
-*/
