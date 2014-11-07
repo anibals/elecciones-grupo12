@@ -20,6 +20,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import sv.edu.ues.igf115.eleccionesgrupo12.datos.MunicipioPk;
+
 @Entity
 @Table(name="Urna", catalog="", schema="")
 public class Urna implements Serializable{
@@ -78,6 +80,19 @@ public class Urna implements Serializable{
 	public Urna()
 	{
 		
+	}
+	
+	public Urna(int idUrna, String idMunicipio,
+			String idDepartamento, String numJunta, String presidente, String secretario, String votosNulos, String votosNoValidos)
+	{
+		this.idUrna = idUrna;
+		this.municipio = new Municipio();
+		this.municipio.setIdMunicipio(new MunicipioPk(idDepartamento, idMunicipio));
+		this.numeroDeJunta = new BigDecimal(numJunta);
+		this.presidente = presidente;
+		this.secretario = secretario;
+		this.cantidadVotosNulos = new BigDecimal(votosNulos);
+		this.cantidadVotosNoValidos = votosNoValidos;
 	}
 	
 	public int getIdUrna() {

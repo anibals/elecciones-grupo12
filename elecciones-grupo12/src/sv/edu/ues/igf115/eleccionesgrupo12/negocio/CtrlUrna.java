@@ -10,12 +10,12 @@ public class CtrlUrna {
 
 	private UrnaDAO daoUrna = new UrnaDAO();
 
-	public boolean guardar(int iddaoUrna, String nombrePartido,
-			String fechaFundacion, String secretarioGeneral)
+	public boolean guardar(int idUrna, String idMunicipio,
+			String idDepartamento, String numJunta, String presidente, String secretario, String votosNulos, String votosNoValidos)
 			throws ParseException {
-		Urna urna = daoUrna.daUrnaById(iddaoUrna);
+		Urna urna = daoUrna.daUrnaById(idUrna);
 		if (urna == null) {
-			//urna = new Urna(iddaoUrna, nombrePartido,fechaFundacion, secretarioGeneral);
+			urna = new Urna(idUrna, idMunicipio, idDepartamento, numJunta, presidente, secretario, votosNulos, votosNoValidos);
 			daoUrna.guardaActualiza(urna);
 			return true;
 		} else
@@ -35,11 +35,11 @@ public class CtrlUrna {
 			return false;
 	}
 	
-	public boolean actualizar(int iddaoUrna, String nombrePartido,
-			String fechaFundacion, String secretarioGeneral) throws ParseException {
-	      if (daoUrna.daUrnaById(iddaoUrna) != null) {
-	    	 // Urna urna = new Urna(iddaoUrna, nombrePartido, fechaFundacion, secretarioGeneral);
-	    	 // daoUrna.guardaActualiza(urna);
+	public boolean actualizar(int idUrna, String idMunicipio,
+			String idDepartamento, String numJunta, String presidente, String secretario, String votosNulos, String votosNoValidos) {
+	      if (daoUrna.daUrnaById(idUrna) != null) {
+	    	  Urna urna = new Urna(idUrna, idMunicipio, idDepartamento, numJunta, presidente, secretario, votosNulos, votosNoValidos);
+	    	  daoUrna.guardaActualiza(urna);
                return true ;
 	        }
 	      else 
