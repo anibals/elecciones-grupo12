@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "Votacion", catalog = "elecciones2014", schema = "")
-@NamedQuery(name = "Votacion.findAll", query = "SELECT v FROM Votacion v")
+//@NamedQuery(name = "Votacion.findAll", query = "SELECT v FROM Votacion v")
 public class Votacion implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

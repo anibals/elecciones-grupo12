@@ -47,8 +47,8 @@ public class CtrlDepartamento {
 	
 	
 	public boolean eliminar(String idDepto) {
-		if (daoDepartamento.daDepartamentoById(idDepto) != null) {
-			Departamento departamento = daoDepartamento.daDepartamentoById(idDepto);
+		Departamento departamento = daoDepartamento.daDepartamentoById(idDepto);
+		if (departamento != null) {
 			daoDepartamento.eliminar(departamento);
 			return true;
 		} else
@@ -56,9 +56,15 @@ public class CtrlDepartamento {
 	}
 	
 	
-	public boolean actualizar(String idDepto, String nombDepto, String zonaGeografica)  {
-	      if (daoDepartamento.daDepartamentoById(idDepto) != null) {
-	    	  Departamento departamento= new Departamento(idDepto, nombDepto, zonaGeografica); //Ver lo de la auditoria
+	public boolean actualizar(String idDepto, String nombDepto, String zonaGeografica,  String modifico, Date fechaModifico){
+		Departamento departamento = daoDepartamento.daDepartamentoById(idDepto);
+		if (departamento != null) {
+	    	  departamento.setNombDepto(nombDepto);
+	    	  departamento.setZonaGeografica(zonaGeografica);//Ver lo de la auditoria
+	    	  
+				departamento.setUsuarioModificacion(modifico);
+				departamento.setFechaModificacion(fechaModifico);
+				daoDepartamento.guardaActualiza(departamento);
 	    	  daoDepartamento.guardaActualiza(departamento);
                return true ;
 	        }

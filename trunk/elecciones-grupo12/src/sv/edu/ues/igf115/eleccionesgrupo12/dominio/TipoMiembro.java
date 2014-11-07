@@ -19,8 +19,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="TipoMiembro", catalog="", schema="")
-@NamedQuery(name = "TipoMiembro.findAll", query = "SELECT t FROM TipoMiembro t")
+@Table(name="TipoMiembro", catalog="elecciones2014", schema="")
+//@NamedQuery(name = "TipoMiembro.findAll", query = "SELECT t FROM TipoMiembro t")
 public class TipoMiembro  implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -60,7 +60,7 @@ public class TipoMiembro  implements Serializable {
 	
 	
 	//constructores
-	public TipoMiembro() {
+	private TipoMiembro() {
 		
 	}
 	
@@ -120,5 +120,17 @@ public class TipoMiembro  implements Serializable {
 	public void setFechaModificacion(Date fechaModificacion) {
 		this.fechaModificacion = fechaModificacion;
 	}
+
+
+	public List<MiembroJRV> getMiembrojrvList() {
+		return miembrojrvList;
+	}
+
+
+	public void setMiembrojrvList(List<MiembroJRV> miembrojrvList) {
+		this.miembrojrvList = miembrojrvList;
+	}
+	
+	
 	
 }
