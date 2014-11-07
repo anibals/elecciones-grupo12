@@ -5,11 +5,11 @@
     
        <%
     CtrlJrv jrv= new CtrlJrv();
-    
+    String idjrv=request.getParameter("idjrv");
     String depto=request.getParameter("iddepto");
     String municipio=request.getParameter("idmunicipio");
     String dui=request.getParameter("dui");
-    jrv.insertarJrv(depto, municipio, dui);
+    jrv.insertarJrv(idjrv,depto, municipio, dui);
     %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
