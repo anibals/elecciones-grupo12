@@ -1,5 +1,6 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.negocio;
 
+
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.MunicipioDAO;
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.MunicipioPk;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Municipio;
@@ -23,7 +24,16 @@ public class CtrlMunicipio {
 	}
 	
 	
-	
+	public boolean eliminarMunicipio(String nombreMunicipio) {
+		Municipio municipio =new Municipio(); 
+		
+		if (daoMunicipio.daMunicipioByNombre(nombreMunicipio) != null) {
+			Municipio municip = (Municipio)daoMunicipio.daMunicipioByNombre(nombreMunicipio);
+			daoMunicipio.eliminar(municip);
+			return true;
+		} else
+			return false;
+	}
 	
 	
 	

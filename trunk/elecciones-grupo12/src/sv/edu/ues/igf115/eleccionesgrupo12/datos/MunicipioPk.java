@@ -46,6 +46,8 @@ public MunicipioPk(String idDepartamento, String idMunicipio) {
 	this.idMunicipio = idMunicipio;
 }
 
-
+public MunicipioPk () {
+	
+}
 
 }

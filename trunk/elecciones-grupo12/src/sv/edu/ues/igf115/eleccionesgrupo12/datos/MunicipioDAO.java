@@ -1,9 +1,11 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.datos;
 
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Restrictions;
 
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Municipio;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico;
@@ -41,7 +43,21 @@ public class MunicipioDAO {
 		}
 	}
 	
-	
+	public void eliminar(Municipio municipio) {
+		try {
+			iniciaOperacion();
+			sesion.delete(municipio);
+			tx.commit();
+
+			sesion.flush();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			sesion.close();
+		}
+	}
+
 	
 	
 	
@@ -54,6 +70,12 @@ public class MunicipioDAO {
 		return municipio;
 	}
 	
-	
+	public Municipio daMunicipioByNombre(String nombre) {
+		sesion = sessionFactory.openSession();
+		Criteria criteria = sesion.createCriteria(Municipio.class).add((Restrictions.like("nomb_municipio",nombre)));
+		Municipio municipio =(Municipio) criteria.uniqueResult();
+		sesion.close();
+		return municipio;
+	}
 	
 }
