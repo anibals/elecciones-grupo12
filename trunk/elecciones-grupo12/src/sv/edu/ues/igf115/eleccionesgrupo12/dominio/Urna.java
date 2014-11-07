@@ -158,6 +158,14 @@ public class Urna implements Serializable{
 	public void setVotacionList(List<Votacion> votacionList) {
 		this.votacionList = votacionList;
 	}
+
+	public Municipio getMunicipio() {
+		return municipio;
+	}
+
+	public void setMunicipio(Municipio municipio) {
+		this.municipio = municipio;
+	}
 	
 	
 	

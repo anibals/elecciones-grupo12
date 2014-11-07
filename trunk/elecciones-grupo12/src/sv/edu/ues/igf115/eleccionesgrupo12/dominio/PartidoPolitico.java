@@ -5,7 +5,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,10 +19,10 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="PartidoPolitico", catalog="elecciones2014", schema="")
 public class PartidoPolitico implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="id_partidopolitico")
 	private String idPartidoPolitico;
@@ -40,12 +39,9 @@ public class PartidoPolitico implements Serializable {
 	@Column(name="nomb_secret_gral")
 	private String nombreSecretarioGeneral;
 	
-	
-															//RELACION<<<<<<<<<<<<<<<<<<<<<
+	//RELACION<<<<<<<<<<<<<<<<<<<<<
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "partido")
 	private List<Votacion> votacionList;
-	
-	
 	
 	@Basic(optional=true)
 	@Column(name="usercrea")
@@ -63,6 +59,10 @@ public class PartidoPolitico implements Serializable {
 	@Column(name="fechamodificacion")
 	private Date fechaModificacion;
 	
+	public PartidoPolitico(){
+		
+	}
+	
 	public PartidoPolitico(String idPartidoPolitico, String nombrePartido,
 			String fechaFundacion, String secretarioGeneral) throws ParseException {
 		this.idPartidoPolitico = idPartidoPolitico;
@@ -71,10 +71,6 @@ public class PartidoPolitico implements Serializable {
 		this.nombreSecretarioGeneral = secretarioGeneral;
 	}
 	
-	public PartidoPolitico(){
-		
-	}
-
 	public String getIdPartidoPolitico() {
 		return idPartidoPolitico;
 	}
@@ -145,10 +141,6 @@ public class PartidoPolitico implements Serializable {
 
 	public void setVotacionList(List<Votacion> votacionList) {
 		this.votacionList = votacionList;
-	}
-
-	
-	
-	
+	}	
 }
 
