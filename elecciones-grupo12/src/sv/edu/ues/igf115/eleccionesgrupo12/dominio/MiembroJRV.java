@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="MiembroJRV", catalog="elecciones2014", schema="")
 public class MiembroJRV implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
@@ -34,15 +35,12 @@ public class MiembroJRV implements Serializable {
 	@Column(name="apellido_paterno")
 	private String apellidoPaterno;
 	
-	
-//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 	@JoinColumn(name="id_jrv", referencedColumnName="id_jrv")
 	@ManyToOne(optional = false)
 	private Jrv jrv;
-
-	
-
+ 
 	@JoinColumn(name="id_tipomiembro", referencedColumnName="id_tipomiembro", nullable = false)
 	@ManyToOne(optional = false)
 	private TipoMiembro tipoMiembro;
@@ -50,16 +48,20 @@ public class MiembroJRV implements Serializable {
 	//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	
 	
-	private MiembroJRV(){
+	public MiembroJRV(){
 		
 	}
 	
-	public MiembroJRV(String id, String nombres, String apPaterno, String apMaterno)
+	public MiembroJRV(String id, String nombres, String apPaterno, String apMaterno, String idJrv, String idTipoMiembro)
 	{
 		this.idMiembroJrv = id;
 		this.nombres = nombres;
 		this.apellidoPaterno = apPaterno;
 		this.apellidoMaterno = apMaterno;
+		this.jrv = new Jrv();
+		this.jrv.setId(Integer.parseInt(idJrv));
+		this.tipoMiembro = new TipoMiembro();
+		this.tipoMiembro.setIdTipoMiembro(idTipoMiembro);
 	}
 		
 
@@ -94,7 +96,6 @@ public class MiembroJRV implements Serializable {
 	public void setApellidoPaterno(String apellidoPaterno) {
 		this.apellidoPaterno = apellidoPaterno;
 	}
-	
 	
 	public Jrv getJrv() {
 		return jrv;

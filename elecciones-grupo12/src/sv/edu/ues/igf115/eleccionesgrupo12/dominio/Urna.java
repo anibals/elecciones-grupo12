@@ -3,21 +3,15 @@ package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
-
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.MunicipioPk;
@@ -29,7 +23,6 @@ public class Urna implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional=false)
 	@Column(name="id_urna")
 	int idUrna;
@@ -54,20 +47,13 @@ public class Urna implements Serializable{
 	@Column(name="cant_votos_no_valid")
 	String cantidadVotosNoValidos;
 
-	
-	//RElACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-	
+	//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	@ManyToOne
 	@JoinColumns({
 	    @JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
 	    @JoinColumn(name="id_depto", referencedColumnName="id_depto")
 	})
 	private Municipio municipio;
-
-	/*
-	@ManyToOne
-	@JoinColumn(name="municipioPK",referencedColumnName="municipioPK")
-	private Municipio municipio;*/
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "idUrna")
 	private List<PadronElectoral> padronelectoralList;
@@ -75,8 +61,8 @@ public class Urna implements Serializable{
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "urna")
 	private List<Votacion> votacionList;
 	
+	//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	
-	//RElACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	public Urna()
 	{
 		
@@ -166,8 +152,4 @@ public class Urna implements Serializable{
 	public void setMunicipio(Municipio municipio) {
 		this.municipio = municipio;
 	}
-	
-	
-	
-	
 }

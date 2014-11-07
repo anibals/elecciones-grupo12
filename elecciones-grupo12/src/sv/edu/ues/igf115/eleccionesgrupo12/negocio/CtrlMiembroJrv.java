@@ -1,11 +1,7 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.negocio;
 
-import java.text.ParseException;
-
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.MiembroJRVDAO;
-import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Jrv;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.MiembroJRV;
-import sv.edu.ues.igf115.eleccionesgrupo12.dominio.TipoMiembro;
 
 public class CtrlMiembroJrv {
 	private MiembroJRVDAO daoMiembroJrv = new MiembroJRVDAO();
@@ -14,14 +10,7 @@ public class CtrlMiembroJrv {
 	{
 		MiembroJRV miembro = daoMiembroJrv.daMiembroJRVById(id);
 		if (miembro == null) {
-			TipoMiembro tipo = new TipoMiembro();
-			tipo.setIdTipoMiembro(idTipoMiembro);
-			//tipo.setDescripcion("")
-			Jrv jrv = new Jrv();
-			jrv.setId(Integer.parseInt(idJrv));
-			miembro = new MiembroJRV(id, nombres,apPaterno, apMaterno);
-			miembro.setJrv(jrv);
-			miembro.setTipoMiembro(tipo);
+			miembro = new MiembroJRV(id, nombres, apPaterno, apMaterno, idJrv, idTipoMiembro);
 			daoMiembroJrv.guardaActualiza(miembro);
 			return true;
 		} else
@@ -43,7 +32,7 @@ public class CtrlMiembroJrv {
 	
 	public boolean actualizar(String id, String nombres, String apPaterno, String apMaterno, String idJrv, String idTipoMiembro){
 	      if (daoMiembroJrv.daMiembroJRVById(id) != null) {
-	    	  MiembroJRV miembro = new MiembroJRV(id, nombres, apPaterno, apMaterno);
+	    	  MiembroJRV miembro = new MiembroJRV(id, nombres, apPaterno, apMaterno, idJrv, idTipoMiembro);
 	    	  daoMiembroJrv.guardaActualiza(miembro);
                return true ;
 	        }

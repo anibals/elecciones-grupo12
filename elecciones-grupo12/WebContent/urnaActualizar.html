@@ -3,19 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Actualizar urna</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	Actualizar urna
-	<form action="urnaActualizar.jsp" method="post">
-		ID urna: <input type="text" value="" name="idUrna"><br>
-		ID Municipio: <input type="text" value="" name="idMunicipio"><br>
-		ID departamento: <input type="text" value="" name="idDepartamento"><br>
-		Número de Junta: <input type="text" value="" name="numJunta"><br>
-		Presidente: <input type="text" value="" name="presidente"><br>
-		Secretario: <input type="text" value="" name="secretario"><br>
-		Cantidad de votos nulos: <input type="text" value="" name="votosNulos"><br>
-		Cantidad de votos no válidos: <input type="text" value="" name="votosNoValidos"><br>
+<div class="col-xs-4 col-xs-offset-4">
+<h1>Actualizar urna</h1>
+	<form action="urnaActualizar.jsp" method="post" class="form-group">
+		ID urna: <input type="text" value="" name="idUrna" class="form-control"><br>
+		ID Municipio: <input type="text" value="" name="idMunicipio" class="form-control"><br>
+		ID departamento: <input type="text" value="" name="idDepartamento" class="form-control"><br>
+		Número de Junta: <input type="text" value="" name="numJunta" class="form-control"><br>
+		Presidente: <input type="text" value="" name="presidente" class="form-control"><br>
+		Secretario: <input type="text" value="" name="secretario" class="form-control"><br>
+		Cantidad de votos nulos: <input type="text" value="" name="votosNulos" class="form-control"><br>
+		Cantidad de votos no válidos: <input type="text" value="" name="votosNoValidos" class="form-control"><br>
 		<input type="submit" value="Actualizar">
 	</form>
+</div>
 </body>
 </html>
