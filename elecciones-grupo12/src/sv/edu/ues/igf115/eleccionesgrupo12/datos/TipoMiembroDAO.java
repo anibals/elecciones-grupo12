@@ -66,7 +66,7 @@ public class TipoMiembroDAO {
 	public TipoMiembro daTipoMimbroById(String idTipoMiembro) {
 		sesion = sessionFactory.openSession();
 		TipoMiembro tipoMiembro = (TipoMiembro) sesion.get(
-				TipoMiembroDAO.class, idTipoMiembro);
+				TipoMiembro.class, idTipoMiembro);
 		sesion.close();
 		return tipoMiembro;
 	}
