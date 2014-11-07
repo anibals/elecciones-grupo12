@@ -19,24 +19,13 @@ import sv.edu.ues.igf115.eleccionesgrupo12.datos.MunicipioPk;
 
 @Entity
 @Table(name="Municipio", catalog="elecciones2014", schema="")
+
 public class Municipio implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	
 	@EmbeddedId
 	private MunicipioPk idMunicipio;
-	
-
-    /*@ManyToOne
-    @JoinColumns ({
-        @JoinColumn(name="parentCivility", referencedColumnName = "isMale"),
-        @JoinColumn(name="parentLastName", referencedColumnName = "lastName"),
-        @JoinColumn(name="parentFirstName", referencedColumnName = "firstName")})
-	private Departamento departamento;
-	
-	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_municipio")
-	private String municipio;*/
 	
 	@Basic(optional=false)
 	@Column(name="nomb_municipio")

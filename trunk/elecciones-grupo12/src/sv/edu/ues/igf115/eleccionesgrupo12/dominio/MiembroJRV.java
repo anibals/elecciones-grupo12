@@ -3,6 +3,7 @@ package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 import java.io.Serializable;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -42,7 +43,7 @@ public class MiembroJRV implements Serializable {
 
 	
 
-	@JoinColumn(name="id_tipomiembro", referencedColumnName="id_tipomiembro")
+	@JoinColumn(name="id_tipomiembro", referencedColumnName="id_tipomiembro", nullable = false)
 	@ManyToOne(optional = false)
 	private TipoMiembro tipoMiembro;
 	
