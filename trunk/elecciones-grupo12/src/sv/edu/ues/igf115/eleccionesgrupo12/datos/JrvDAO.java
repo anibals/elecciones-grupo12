@@ -4,73 +4,66 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-
-
-
-
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Jrv;
 import sv.edu.ues.igf115.eleccionesgrupo12.utilidades.*;
 
 
 public class JrvDAO {
 	
-private HibernateUtil hibernateUtil = new HibernateUtil();
-private SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
-private Session sesion;
-private Transaction tx;
-
-private void iniciaOperacion() throws HibernateException {
-	sesion = sessionFactory.openSession();
-	tx = sesion.beginTransaction();
-}
-
-private void manejaExcepcion(HibernateException he)
-		throws HibernateException {
-	tx.rollback();
-	throw new HibernateException("Ocurrió un error en la capa DAO", he);
-}
-
-
-
-public void guardaActualiza(Jrv jrv) {
+	private HibernateUtil hibernateUtil = new HibernateUtil();
+	private SessionFactory sessionFactory = hibernateUtil.getSessionFactory();
+	private Session sesion;
+	private Transaction tx;
 	
-	try {
-		iniciaOperacion();
-		sesion.saveOrUpdate(jrv);
-		tx.commit();
-		sesion.flush();
-	} catch (HibernateException he) {
-		manejaExcepcion(he);
-		throw he;
-	} finally {
-		sesion.close();
+	private void iniciaOperacion() throws HibernateException {
+		sesion = sessionFactory.openSession();
+		tx = sesion.beginTransaction();
 	}
-}
-
-
-
-public void eliminarJrv(Jrv jrv) {
-	try {
-		iniciaOperacion();
-		sesion.delete(jrv);
-		tx.commit();
-
-		sesion.flush();
-	} catch (HibernateException he) {
-		manejaExcepcion(he);
-		throw he;
-	} finally {
-		sesion.close();
+	
+	private void manejaExcepcion(HibernateException he)
+			throws HibernateException {
+		tx.rollback();
+		throw new HibernateException("Ocurrió un error en la capa DAO", he);
 	}
-}
-
-public Jrv daJrv(String idjrv) {
-	sesion = sessionFactory.openSession();
-	// Retorna la instancia persistente de la clase por medio del atributo identidad
-	Jrv id = (Jrv) sesion.get(Jrv.class,idjrv);
-	sesion.close();
-	return id;
-}
+	
+	
+	
+	public void guardaActualiza(Jrv jrv) {
+		
+		try {
+			iniciaOperacion();
+			sesion.saveOrUpdate(jrv);
+			tx.commit();
+			sesion.flush();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			sesion.close();
+		}
+	}
+	
+	
+	
+	public void eliminarJrv(Jrv jrv) {
+		try {
+			iniciaOperacion();
+			sesion.delete(jrv);
+			tx.commit();
+			sesion.flush();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			sesion.close();
+		}
+	}
+	
+	public Jrv daJrv(int idjrv) {
+		sesion = sessionFactory.openSession();
+		Jrv id = (Jrv) sesion.get(Jrv.class, idjrv);
+		sesion.close();
+		return id;
+	}
 
 }
