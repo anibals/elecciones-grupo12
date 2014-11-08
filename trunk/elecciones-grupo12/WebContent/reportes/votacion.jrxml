@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="votacion" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f8ad6acd-45cc-469a-a296-b9b2d0b1012a">
+	<property name="ireport.zoom" value="1.1000000000000012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Votacion.`id_votacion` AS Votacion_id_votacion,
+     Votacion.`id_urna` AS Votacion_id_urna,
+     Votacion.`id_partidopolitico` AS Votacion_id_partidopolitico,
+     Votacion.`cant_votos_valido` AS Votacion_cant_votos_valido
+FROM
+     `Votacion` Votacion]]>
+	</queryString>
+	<field name="Votacion_id_votacion" class="java.lang.Integer"/>
+	<field name="Votacion_id_urna" class="java.lang.Integer"/>
+	<field name="Votacion_id_partidopolitico" class="java.lang.String"/>
+	<field name="Votacion_cant_votos_valido" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="229" y="45" width="100" height="20" uuid="cf7e88b1-1adb-4e0d-a01f-4096ab29e9e1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Elecciones 2014]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="0" width="227" height="28" uuid="b7267d5a-055e-49cb-91e2-313b4a608c3d"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Listado de Votacion]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="229" y="0" width="100" height="20" uuid="cfa9c1e7-536d-4ed8-8bd0-7412a417b2f0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="13" y="11" width="68" height="35" forecolor="#000000" uuid="ac56e025-dad1-48c1-a449-b7aac2b04533"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="11" width="138" height="35" uuid="b7186fc3-41b5-4de8-89ec-2c65c1b442d3"/>
+				<textElement textAlignment="Left">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Urna]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="11" width="165" height="35" uuid="1c4539d1-9143-4d14-b0e5-6eab9b10d752"/>
+				<textElement textAlignment="Left">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Partido Politico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="11" width="171" height="35" uuid="df26a2bb-c034-4aae-aa76-f73437406e85"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad Votos Validos]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="13" y="1" width="542" height="1" uuid="b3456a8d-510c-42f1-aeb1-cea61da2dda1"/>
+			</line>
+			<textField>
+				<reportElement x="13" y="1" width="68" height="20" uuid="99662c17-772c-4564-a4f0-8fa4227ea01c"/>
+				<textFieldExpression><![CDATA[$F{Votacion_id_votacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="1" width="138" height="20" uuid="93d31ac4-21e8-4d6f-a2be-39ba4ab0ad68"/>
+				<textFieldExpression><![CDATA[$F{Votacion_id_urna}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="1" width="165" height="20" uuid="913cafdf-82ac-4d18-bc4f-871c13a663d6"/>
+				<textFieldExpression><![CDATA[$F{Votacion_id_partidopolitico}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="384" y="0" width="171" height="20" uuid="990edcd7-ef71-47ae-a776-393cd2a064a1"/>
+				<textFieldExpression><![CDATA[$F{Votacion_cant_votos_valido}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="13" y="21" width="542" height="1" uuid="4a618f12-9771-4f4d-a469-2c42e51e3361"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="13" width="38" height="20" uuid="132fc0f1-3a2c-41f3-8d34-8bc53550fc43"/>
+				<text><![CDATA[IGF115]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="13" width="45" height="20" uuid="aa114d47-2264-4d07-9db8-a56da8986346"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Grupo 12]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
