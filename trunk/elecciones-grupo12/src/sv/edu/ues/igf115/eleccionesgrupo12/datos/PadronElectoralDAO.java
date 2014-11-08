@@ -6,8 +6,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PadronElectoral;
-import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico;
-import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Votacion;
 import sv.edu.ues.igf115.eleccionesgrupo12.utilidades.HibernateUtil;
 public class PadronElectoralDAO {
 
@@ -39,9 +37,25 @@ public class PadronElectoralDAO {
 			sesion.close();
 		}
 	}
+	
+	
+	public void eliminar(PadronElectoral padron) {
+		try {
+			iniciaOperacion();
+			sesion.delete(padron);
+			tx.commit();
+			sesion.flush();
+		} catch (HibernateException he) {
+			manejaExcepcion(he);
+			throw he;
+		} finally {
+			sesion.close();
+		}
+	}
+	
 	public PadronElectoral daPadronElectoralById(String dui) {
 		sesion = sessionFactory.openSession();
-		PadronElectoral padron = (PadronElectoral) sesion.get(PartidoPolitico.class, dui);
+		PadronElectoral padron = (PadronElectoral) sesion.get(PadronElectoral.class, dui);
 		sesion.close();
 		return padron;
 	}

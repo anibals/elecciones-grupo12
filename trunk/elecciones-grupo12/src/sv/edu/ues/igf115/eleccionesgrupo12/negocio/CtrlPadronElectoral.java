@@ -6,8 +6,8 @@ import java.util.Date;
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.PadronElectoralDAO;
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.UrnaDAO;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PadronElectoral;
-import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Urna;
+
 
 
 public class CtrlPadronElectoral {
@@ -29,6 +29,16 @@ private PadronElectoralDAO daoPadronElectoral=new PadronElectoralDAO();
 	
 	
 	
+	
+	
+	public boolean eliminar(String dui) {
+		PadronElectoral padron =daoPadronElectoral.daPadronElectoralById(dui);
+		if (padron != null) {
+			daoPadronElectoral.eliminar(padron);
+			return true;
+		} else
+			return false;
+	}
 	
 	
 	

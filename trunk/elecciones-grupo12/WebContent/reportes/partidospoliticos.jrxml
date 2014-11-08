@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="partidospoliticos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5845d81a-943f-4ade-9cfc-273e764930b9">
 	<property name="ireport.zoom" value="1.3310000000000006"/>
-	<property name="ireport.x" value="32"/>
+	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
@@ -43,7 +43,7 @@ FROM
 	<columnHeader>
 		<band height="26" splitType="Stretch">
 			<staticText>
-				<reportElement uuid="b1f7efcb-e69c-4a43-ae55-a1ef3aa83d2e" x="5" y="2" width="70" height="20"/>
+				<reportElement uuid="b1f7efcb-e69c-4a43-ae55-a1ef3aa83d2e" mode="Transparent" x="5" y="2" width="70" height="20"/>
 				<textElement textAlignment="Left">
 					<font isBold="true"/>
 				</textElement>
@@ -88,11 +88,6 @@ FROM
 				<textFieldExpression><![CDATA[$F{PartidoPolitico_fech_fundac}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="4cdb02b0-c2c4-4f5f-b4bf-15cb85fc3f65" x="75" y="0" width="190" height="20"/>
-				<textElement/>
-				<textFieldExpression><![CDATA[$F{PartidoPolitico_nomb_partido}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement uuid="1e71512b-7ca3-4814-9bb1-8bad2c4ca41f" x="365" y="0" width="190" height="20"/>
 				<textElement/>
 				<textFieldExpression><![CDATA[$F{PartidoPolitico_nomb_secret_gral}]]></textFieldExpression>
@@ -100,6 +95,11 @@ FROM
 			<line>
 				<reportElement uuid="aa2cdf92-9b23-4749-af2a-d9d6e2b6b9dc" x="4" y="22" width="550" height="1"/>
 			</line>
+			<textField>
+				<reportElement uuid="4cdb02b0-c2c4-4f5f-b4bf-15cb85fc3f65" x="75" y="2" width="190" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{PartidoPolitico_nomb_partido}]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
