@@ -17,9 +17,9 @@
     boolean exito = ctrlDepartamento.actualizar(idDepto, nombDepto, zonaGeografica, modifico, fechaModifico);
 String mensaje;
 if (exito) {
-	mensaje = "Se actualizó el partido político";
+	mensaje = "Se actualizó el Departamento";
 }else {
-	mensaje = "No existe un partido político con ese código";
+	mensaje = "No existe un Departamento con ese código";
 }
 %>
     

@@ -30,7 +30,7 @@ public class Votacion implements Serializable {
 	private BigDecimal idVotacion;
 	
 	@Basic(optional = false)
-	@Column(name = "cant_votos_validos")
+	@Column(name = "cant_votos_valido")
 	private BigDecimal cantVotosValidos;
 	
 	
