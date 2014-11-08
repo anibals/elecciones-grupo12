@@ -96,8 +96,8 @@ public class PadronElectoral implements Serializable {
 
 	public PadronElectoral(String dui, String nombre, String apellidos,
 			Date fecha_nac, String domicilio, String estadoVotacion,
-			Urna idUrna, String userCrea, Date fechaCreacion,
-			String userModifica, Date fechaModificacion) {
+			Urna idUrna, String userCrea,
+			Date fechaCreacion, String userModifica, Date fechaModificacion) {
 		super();
 		this.dui = dui;
 		this.nombre = nombre;
@@ -115,6 +115,8 @@ public class PadronElectoral implements Serializable {
 
 
 
+
+	
 	public String getDui() {
 		return dui;
 	}
