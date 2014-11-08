@@ -11,7 +11,7 @@
     if(exito){
     	mensaje="Guardado con exito";
     }else{
-    	mensaje="ya existe";
+    	mensaje="No existe dui en el padron";
     }
     
      %>
