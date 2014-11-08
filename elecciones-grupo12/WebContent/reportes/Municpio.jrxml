@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[SELECT id_municipio,nomb_municipio,departamento.nomb_depto FROM municipio,departamento]]>
+		<![CDATA[SELECT id_municipio,nomb_municipio,Departamento.nomb_depto FROM Municipio,Departamento]]>
 	</queryString>
 	<field name="id_municipio" class="java.lang.String"/>
 	<field name="nomb_municipio" class="java.lang.String"/>

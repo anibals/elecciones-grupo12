@@ -12,7 +12,7 @@
     boolean exito=jrv.insertarJrv(idjrv,depto, municipio, dui);
     String mensaje;
     if(exito){
-    	mensaje="se guardo correctamente";
+    	mensaje="se guardó correctamente";
     }else{
     	mensaje="ya existe";
     }
@@ -25,6 +25,6 @@
 <title>Insertar JRV</title>
 </head>
 <body>
-
+	<%= mensaje %>
 </body>
 </html>

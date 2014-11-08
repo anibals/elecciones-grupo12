@@ -25,7 +25,7 @@ private PadronElectoralDAO daoPadronElectoral=new PadronElectoralDAO();
 		PadronElectoral padron = daoPadronElectoral.daPadronElectoralById(dui);
 		Urna urna=daoUrna.daUrnaById(idurna);
 		if (padron == null) {
-			padron = new PadronElectoral(dui, nombre, apellido, fechanac, domicilio, estado, urna, null, null, null, null);
+			padron = new PadronElectoral(dui, nombre, apellido, fechanac, domicilio, estado, urna, "", new Date(), "", new Date());
 			daoPadronElectoral.guardaActualiza(padron);
 			return true;
 		} else

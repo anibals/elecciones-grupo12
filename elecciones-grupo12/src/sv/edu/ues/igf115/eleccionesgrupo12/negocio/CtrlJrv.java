@@ -1,5 +1,7 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.negocio;
 
+import java.util.Date;
+
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.JrvDAO;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Jrv;
 
@@ -8,14 +10,10 @@ public class CtrlJrv {
 
    private JrvDAO daojrv = new JrvDAO();
 
-  
-	
-
-		//daojrv.guardaActualiza(jrv);
-	public boolean insertarJrv(String idjrv,String municipio, String depto, String dui) {
+   public boolean insertarJrv(String idjrv,String municipio, String depto, String dui) {
 		Jrv jrv = daojrv.daJrv(Integer.parseInt(idjrv));
 		if (jrv == null) {
-			jrv = new Jrv(idjrv, municipio,depto, dui, null, null, null, null);
+			jrv = new Jrv(idjrv, municipio,depto, dui, "", new Date(), "", new Date());
 			daojrv.guardaActualiza(jrv);
 			return true;
 		} else
@@ -33,7 +31,7 @@ public class CtrlJrv {
 	
 	public boolean actualizar(String idjrv,String municipio, String depto, String dui) {
 	      if (daojrv.daJrv(Integer.parseInt(idjrv)) != null) {
-	    	    Jrv jrv = new Jrv(idjrv, municipio,depto, dui, null, null, null, null);
+	    	    Jrv jrv = new Jrv(idjrv, municipio,depto, dui, "", new Date(), "", new Date());
 				daojrv.guardaActualiza(jrv);
                return true ;
 	        }
