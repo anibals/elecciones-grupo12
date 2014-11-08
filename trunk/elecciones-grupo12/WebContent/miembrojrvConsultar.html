@@ -2,13 +2,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Consultar partido político</title>
+<title>Consultar Miembros de JRV</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	<form action="consultarmiembrojrv.jsp">
-	ID del partido político: <input type="text" value="" name="idPartidoPolitico"><br>
+<div class="col-xs-4 col-xs-offset-4">
+<h1>Consultar miembros de JRV</h1>	
+<form action="miembrojrvConsultar.jsp" method="post" class="form-group">
+	ID de la JRV: <input type="text" value="" name="idJrv" class="form-control"><br>
 	<input type="submit" value="Consultar">
 	</form>
-	
+</div>
 </body>
 </html>

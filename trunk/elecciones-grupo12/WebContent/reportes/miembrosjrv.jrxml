@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="miembrosjrv" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a28d7e55-62e2-461d-839f-5c9c0bbca8db">
+	<property name="ireport.zoom" value="1.3636363636363642"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     MiembroJRV.`id_miembrojrv` AS MiembroJRV_id_miembrojrv,
+     MiembroJRV.`nombres` AS MiembroJRV_nombres,
+     MiembroJRV.`apellido_materno` AS MiembroJRV_apellido_materno,
+     MiembroJRV.`apellido_paterno` AS MiembroJRV_apellido_paterno,
+     MiembroJRV.`id_tipomiembro` AS MiembroJRV_id_tipomiembro,
+     MiembroJRV.`id_jrv` AS MiembroJRV_id_jrv
+FROM
+     `MiembroJRV` MiembroJRV
+ORDER BY
+     MiembroJRV.`id_jrv` ASC]]>
+	</queryString>
+	<field name="MiembroJRV_id_miembrojrv" class="java.lang.String"/>
+	<field name="MiembroJRV_nombres" class="java.lang.String"/>
+	<field name="MiembroJRV_apellido_materno" class="java.lang.String"/>
+	<field name="MiembroJRV_apellido_paterno" class="java.lang.String"/>
+	<field name="MiembroJRV_id_tipomiembro" class="java.lang.String"/>
+	<field name="MiembroJRV_id_jrv" class="java.lang.Integer"/>
+	<group name="MiembroJRV_id_jrv">
+		<groupExpression><![CDATA[$F{MiembroJRV_id_jrv}]]></groupExpression>
+		<groupHeader>
+			<band height="43">
+				<textField>
+					<reportElement uuid="5e4b0cba-90e7-40f7-a0ca-29c4d885d17d" mode="Opaque" x="0" y="0" width="572" height="20" backcolor="#CCFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ID de JRV: "+$F{MiembroJRV_id_jrv}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="e46edaa3-496a-4972-84ea-bb7cc8a68cbd" x="0" y="20" width="70" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ID Miembro]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="eddc992a-3af5-4ee9-84f2-4a37641e344a" x="70" y="20" width="196" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Nombres]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="56b3cc3d-9c1c-45ca-af38-3748c613750e" x="266" y="20" width="112" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Apellido Materno]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="4f896e50-c7f5-43a7-af7e-9a34144b2fe2" x="378" y="20" width="112" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Apellido Paterno]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="6b7f6711-28a5-4403-abb5-138fd3a4a260" x="490" y="20" width="82" height="20"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[ID tipo miembro]]></text>
+				</staticText>
+				<line>
+					<reportElement uuid="c9165cb9-9be5-46c0-91b5-59f5fd965dbd" x="0" y="40" width="572" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="dcdc5947-87e0-4820-948c-8b2b9bc2eeaa" x="241" y="49" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0c2e03f6-0b60-466f-99a6-557fe14acd55" x="180" y="0" width="227" height="28"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Listado de miembros de JRV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="924c6172-8583-49d7-9594-b813633f8124" x="241" y="28" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Elecciones 2014]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement uuid="ef25aab5-4e32-4022-b3da-d9123fc98f29" x="0" y="0" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{MiembroJRV_id_miembrojrv}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="658ad76b-9b60-42c8-a436-3d91ae5fb5c9" x="266" y="0" width="112" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{MiembroJRV_apellido_materno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a475f9e8-b09a-4344-a5d0-3a9113f2f9cb" x="490" y="0" width="82" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{MiembroJRV_id_tipomiembro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="11028559-7f62-4ef4-8e7c-04d58cc5fda4" x="378" y="0" width="112" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{MiembroJRV_apellido_paterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="21067771-4e90-4042-9f98-6aa21b38de68" x="70" y="0" width="196" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{MiembroJRV_nombres}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="bcedd2fd-984a-4647-bc4d-06b01e85bcdd" x="0" y="21" width="572" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9acb1d82-7ea7-42b3-8b5e-1d4c2ee2293b" x="527" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Grupo 12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e9d52fc1-4df5-4c22-88cd-3faf229b3102" x="0" y="0" width="38" height="20"/>
+				<textElement/>
+				<text><![CDATA[IGF115]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

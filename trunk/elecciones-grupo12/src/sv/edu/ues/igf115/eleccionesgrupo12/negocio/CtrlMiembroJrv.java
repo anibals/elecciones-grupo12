@@ -1,5 +1,7 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.negocio;
 
+import java.util.List;
+
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.MiembroJRVDAO;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.MiembroJRV;
 
@@ -19,6 +21,10 @@ public class CtrlMiembroJrv {
 
 	public MiembroJRV daMiembroJRVById(String idMiembroJrv) {
 		return daoMiembroJrv.daMiembroJRVById(idMiembroJrv);
+	}
+	
+	public List<MiembroJRV> daMiembrosByJRV(String idJrv) {
+		return daoMiembroJrv.daMiembrosJRVByJRV(Integer.parseInt(idJrv));
 	}
 
 	public boolean eliminar(String idMiembroJrv) {
