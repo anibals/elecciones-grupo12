@@ -2,17 +2,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Actualizar Miembro de JRV</title>
+<title>Actualizar miembro de JRV</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>	
-<form action="actualizarmiembrojrv.jsp" method="post">
-	ID Miembro JRV: <input type="text" value="" name="id"><br>
-	Nombres: <input type="text" value="" name="nombres"><br>
-	Apellido paterno: <input type="text" value="" name="apellidoPaterno"><br>
-	Apellido materno: <input type="text" value="" name="apellidoMaterno"><br>
-	ID JRV: <input type="text" value="" name="idJrv"><br>
-	ID Tipo Miembro: <input type="text" value="" name="idTipoMiembro"><br>
+<body>
+<div class="col-xs-4 col-xs-offset-4">
+<h1>Actualizar miembro de JRV</h1>	
+<form action="miembrojrvActualizar.jsp" method="post" class="form-group">
+	ID Miembro JRV: <input type="text" value="" name="id" class="form-control"><br>
+	Nombres: <input type="text" value="" name="nombres" class="form-control"><br>
+	Apellido paterno: <input type="text" value="" name="apellidoPaterno" class="form-control"><br>
+	Apellido materno: <input type="text" value="" name="apellidoMaterno" class="form-control"><br>
+	ID JRV: <input type="text" value="" name="idJrv" class="form-control"><br>
+	ID Tipo Miembro: <input type="text" value="" name="idTipoMiembro" class="form-control"><br>
 	<input type="submit" value="Actualizar">
 	</form>
+</div>
 </body>
 </html>

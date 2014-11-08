@@ -60,7 +60,7 @@ public class TipoMiembro  implements Serializable {
 	
 	
 	//constructores
-	private TipoMiembro() {
+	public TipoMiembro() {
 		
 	}
 	

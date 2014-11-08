@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="urnas" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6645cd26-cc0b-492a-805d-677aa7c35fc3">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="269"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Urna.`id_urna` AS Urna_id_urna,
+     Urna.`id_depto` AS Urna_id_depto,
+     Urna.`id_municipio` AS Urna_id_municipio,
+     Urna.`num_junta` AS Urna_num_junta,
+     Urna.`presidente` AS Urna_presidente,
+     Urna.`secretario` AS Urna_secretario,
+     Urna.`cant_votos_nulos` AS Urna_cant_votos_nulos,
+     Urna.`cant_votos_no_valid` AS Urna_cant_votos_no_valid
+FROM
+     `Urna` Urna]]>
+	</queryString>
+	<field name="Urna_id_urna" class="java.lang.Integer"/>
+	<field name="Urna_id_depto" class="java.lang.String"/>
+	<field name="Urna_id_municipio" class="java.lang.String"/>
+	<field name="Urna_num_junta" class="java.math.BigDecimal"/>
+	<field name="Urna_presidente" class="java.lang.String"/>
+	<field name="Urna_secretario" class="java.lang.String"/>
+	<field name="Urna_cant_votos_nulos" class="java.math.BigDecimal"/>
+	<field name="Urna_cant_votos_no_valid" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="77f9179d-033a-4d76-9482-6bf6e396f6f5" x="239" y="49" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3e0aafe0-a9c3-4568-9921-026d1cd8df11" x="178" y="0" width="227" height="28"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Listado de urnas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="11741816-0b16-49bf-bef4-df6bd84f2aca" x="239" y="28" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Elecciones 2014]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ecebdcd4-1e85-4bee-844e-c15252d3e6eb" x="0" y="0" width="59" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Urna]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="93bdd9de-c408-4441-8956-5b932439502d" x="59" y="0" width="83" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID departamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="067c8d68-7afd-4778-9e04-c13d72b493ac" x="142" y="0" width="57" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID Municipio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7e1cad72-2d95-4a34-8c8d-b04e9b186911" x="199" y="0" width="51" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Junta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b5fe3324-71b9-43bb-bb78-781319e90bbe" x="250" y="0" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Presidente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="666cea15-5278-4225-b817-3d4b4f95b8db" x="350" y="0" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Secretario]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3f723db1-d1ac-4d97-9a68-7f2f5e8dec9d" x="450" y="1" width="63" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nulos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4acb7727-6e06-44b6-bac9-497f5cd34612" x="513" y="1" width="59" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[No válidos]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="062b92f4-a0cc-4561-9daf-e0de8d8b30cd" x="2" y="21" width="569" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement uuid="bf17293e-1b71-48d7-a068-e7f87254ecc6" x="0" y="0" width="59" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Urna_id_urna}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="14d56321-7f40-46ed-8f97-69b26cdc6406" x="59" y="0" width="83" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Urna_id_depto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="95d5ad5b-c901-493f-89c0-df76212e2d51" x="142" y="0" width="57" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Urna_id_municipio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5dea562b-a619-4695-9ed3-1a49fad346d7" x="199" y="0" width="51" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Urna_num_junta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0dd430b7-41e9-4a86-95b8-8d83ec861ba8" x="250" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Urna_presidente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0fbad0dd-f4bc-4567-9645-ecadf4ca5d48" x="350" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Urna_secretario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d6a1252e-5eb1-4dec-94b0-e3827a0b26f8" x="450" y="0" width="63" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Urna_cant_votos_nulos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9a93156c-c74a-4990-8aef-147b85753c06" x="513" y="0" width="59" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Urna_cant_votos_no_valid}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="417d4d35-2e38-440d-8b61-c8bf9512aeb3" x="2" y="22" width="569" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="e1d669b1-db79-4e4b-a189-66a699de92d1" x="527" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Grupo 12]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fa484e87-ec7b-4dc6-809e-48364c40457e" x="0" y="0" width="45" height="20"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[IGF115]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
