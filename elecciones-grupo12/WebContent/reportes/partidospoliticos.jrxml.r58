@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="partidospoliticos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5845d81a-943f-4ade-9cfc-273e764930b9">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     PartidoPolitico.`id_partidopolitico` AS PartidoPolitico_id_partidopolitico,
+     PartidoPolitico.`nomb_partido` AS PartidoPolitico_nomb_partido,
+     PartidoPolitico.`nomb_secret_gral` AS PartidoPolitico_nomb_secret_gral,
+     PartidoPolitico.`fech_fundac` AS PartidoPolitico_fech_fundac
+FROM
+     `PartidoPolitico` PartidoPolitico]]>
+	</queryString>
+	<field name="PartidoPolitico_id_partidopolitico" class="java.lang.String"/>
+	<field name="PartidoPolitico_nomb_partido" class="java.lang.String"/>
+	<field name="PartidoPolitico_nomb_secret_gral" class="java.lang.String"/>
+	<field name="PartidoPolitico_fech_fundac" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="708c5ea2-d840-4648-b7a1-1a9989775a4c" x="169" y="0" width="227" height="28"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Listado de partidos políticos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0fcd3ba1-5b9d-4a25-a816-e357d5ab587b" x="230" y="28" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Elecciones 2014]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="bdec69a6-12f1-4d43-ab73-823e1ba4ed67" x="230" y="49" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="b1f7efcb-e69c-4a43-ae55-a1ef3aa83d2e" mode="Transparent" x="5" y="2" width="70" height="20"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="82f81ada-e082-43c3-9598-83b951a4c87d" x="265" y="2" width="100" height="20"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de fundación]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e8edb2fa-fa7d-42ce-8af1-b825b6c757ca" x="365" y="2" width="190" height="20"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Secretario general]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5e97c9a6-942f-4fe1-ba58-aafcc20083ab" x="75" y="2" width="190" height="20"/>
+				<textElement textAlignment="Left">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="138828e9-50b6-4156-95e5-529423badb44" x="4" y="24" width="550" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement uuid="aac89546-33e7-4e90-9efa-fff707914969" x="5" y="0" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{PartidoPolitico_id_partidopolitico}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="c3ead2ed-2ce5-453f-b28f-311ccaf022e4" x="265" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{PartidoPolitico_fech_fundac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1e71512b-7ca3-4814-9bb1-8bad2c4ca41f" x="365" y="0" width="190" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{PartidoPolitico_nomb_secret_gral}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="aa2cdf92-9b23-4749-af2a-d9d6e2b6b9dc" x="4" y="22" width="550" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="4cdb02b0-c2c4-4f5f-b4bf-15cb85fc3f65" x="75" y="2" width="190" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{PartidoPolitico_nomb_partido}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9ac1c45d-bb4a-4d1c-ac7c-85db5ad5d394" x="0" y="0" width="38" height="20"/>
+				<textElement/>
+				<text><![CDATA[IGF115]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c11b8e6-8699-4470-a97b-3fb9fd1a7c70" x="510" y="0" width="45" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Grupo 12]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

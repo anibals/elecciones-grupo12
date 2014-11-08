@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="departamento" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9426ff76-5f5b-41c9-8bcc-8b3c359b774e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     Departamento.`id_depto` AS Departamento_id_depto,
+     Departamento.`nomb_depto` AS Departamento_nomb_depto,
+     Departamento.`zona_geografica` AS Departamento_zona_geografica
+FROM
+     `Departamento` Departamento]]>
+	</queryString>
+	<field name="Departamento_id_depto" class="java.lang.String"/>
+	<field name="Departamento_nomb_depto" class="java.lang.String"/>
+	<field name="Departamento_zona_geografica" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement x="237" y="39" width="100" height="20" uuid="1828d66f-bd7e-45cf-a0b1-347d13d5eda7"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Elecciones 2014]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="0" width="227" height="28" uuid="e79c93f2-2cb6-431e-8fd6-31cc557fb625"/>
+				<textElement textAlignment="Center">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Listado de Departamentos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="237" y="0" width="100" height="20" uuid="54bd7e19-cbb0-4a1e-9194-dc9490c81c85"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="81" y="1" width="81" height="35" forecolor="#000000" uuid="730e9390-46df-40ec-9cc0-868149f2ee6b"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="0" width="193" height="35" uuid="693da0b6-91e2-4ee0-86f5-0e2d06c903bc"/>
+				<textElement textAlignment="Left">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="389" y="0" width="126" height="35" uuid="16cdb6f0-17f5-4e33-9706-74829fdd13b7"/>
+				<textElement textAlignment="Left">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Zona Geográfica]]></text>
+			</staticText>
+			<line>
+				<reportElement x="10" y="1" width="550" height="1" uuid="e67ebb66-9e02-49cc-8f97-9c3d6fce7312"/>
+			</line>
+			<line>
+				<reportElement x="10" y="35" width="550" height="1" uuid="097420fb-f650-4e0e-90c1-92f266cda6ac"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="81" y="3" width="81" height="20" uuid="e78ccc38-cb86-4efa-ba8c-451fd1db5eb3"/>
+				<textFieldExpression><![CDATA[$F{Departamento_id_depto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="389" y="0" width="126" height="20" uuid="fe1851d6-ded2-4e43-abdf-2cb5952ef3c1"/>
+				<textFieldExpression><![CDATA[$F{Departamento_zona_geografica}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="0" width="193" height="20" uuid="61afc44b-fa14-45be-bd26-09c61720b33e"/>
+				<textFieldExpression><![CDATA[$F{Departamento_nomb_depto}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="10" y="22" width="550" height="1" uuid="512242ad-46a6-463c-9201-77e46522f5e8"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="8" width="38" height="20" uuid="a41eb95a-9a19-4463-a757-9cfdf76e6d6b"/>
+				<text><![CDATA[IGF115]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="515" y="8" width="45" height="20" uuid="da98f6d5-ac4c-412f-b1e6-8731d3ae71ed"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Grupo 12]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
