@@ -6,7 +6,7 @@
     String dui = request.getParameter("dui");
    
     CtrlPadronElectoral ctrlpadron=new CtrlPadronElectoral();
-    boolean exito=ctrlpadron.eliminar();
+    boolean exito=ctrlpadron.eliminar(dui);
     String mensaje;
     if(exito){
     	mensaje="Guardado con exito";
@@ -14,12 +14,7 @@
     	mensaje="ya existe";
     }
     
-    
-    
-    
-    
-    
-    %>
+     %>
     
     
     
@@ -30,6 +25,6 @@
 <title>Eliminar Padron ELectoral</title>
 </head>
 <body>
-
+<%=mensaje %>
 </body>
 </html>

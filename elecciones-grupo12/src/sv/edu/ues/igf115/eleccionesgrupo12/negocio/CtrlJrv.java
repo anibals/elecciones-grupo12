@@ -8,6 +8,10 @@ public class CtrlJrv {
 
    private JrvDAO daojrv = new JrvDAO();
 
+  
+	
+
+		//daojrv.guardaActualiza(jrv);
 	public boolean insertarJrv(String idjrv,String municipio, String depto, String dui) {
 		Jrv jrv = daojrv.daJrv(Integer.parseInt(idjrv));
 		if (jrv == null) {
