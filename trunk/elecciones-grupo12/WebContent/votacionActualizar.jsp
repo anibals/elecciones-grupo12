@@ -41,6 +41,6 @@ case 3:  mensaje = "Se actualizo la Votacion correctamente";
 <title>Votacion Actualizar</title>
 </head>
 <body>
-
+<%= mensaje %>
 </body>
 </html>
