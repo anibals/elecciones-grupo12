@@ -54,6 +54,7 @@ public class CtrlVotacion {
 	}
 
 	
+	
 	public List<Votacion> daVotacioness() {
 		return daoVotacion.daVotacion();
 	}
@@ -76,7 +77,7 @@ public class CtrlVotacion {
 		UrnaDAO daoUrna= new UrnaDAO();
 		Votacion votacion=daoVotacion.daVotacionById(idVotacion);
 				
-		if (votacion == null) {
+		if (votacion != null) {
 			PartidoPolitico partido=daoPartido.daPartidoPoliticoById(idPartido);
 			Urna urna=daoUrna.daUrnaById(idUrna);
 			if (urna!=null) {
