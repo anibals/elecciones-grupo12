@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Municpio" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8babc6bb-538a-4f5c-aad2-57452792b8a3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT id_municipio,nomb_municipio,departamento.nomb_depto FROM municipio,departamento]]>
+	</queryString>
+	<field name="id_municipio" class="java.lang.String"/>
+	<field name="nomb_municipio" class="java.lang.String"/>
+	<field name="nomb_depto" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0fcd3ba1-5b9d-4a25-a816-e357d5ab587b" x="201" y="28" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Elecciones 2014]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="708c5ea2-d840-4648-b7a1-1a9989775a4c" x="138" y="0" width="227" height="28"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Listado de municipios]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="bdec69a6-12f1-4d43-ab73-823e1ba4ed67" x="197" y="48" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="4b01ed1a-87b8-4d6c-8120-1fafaa1f61c3" x="39" y="14" width="24" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ec311f00-1bd2-4da4-9685-793a248a1496" x="197" y="14" width="180" height="20"/>
+				<textElement textAlignment="Justified">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE MUNICIPIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="84e7fff8-53de-41a9-a297-6ac3e1b1209d" x="395" y="14" width="137" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEPTO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="1" splitType="Stretch">
+			<line>
+				<reportElement uuid="1f622317-76b1-4881-8fe6-e791923650c3" x="0" y="0" width="555" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement uuid="acc04027-0644-4ab8-bf77-cad041362d57" x="0" y="0" width="555" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="8f2c7cc4-2399-4bad-9539-3b619a8d5433" x="38" y="4" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id_municipio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3d64c202-a558-44bc-aaf3-a2487a37fce9" x="201" y="4" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nomb_municipio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="74a157e0-06b0-4af7-89e3-24a5ad3efcba" x="402" y="4" width="100" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nomb_depto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9ac1c45d-bb4a-4d1c-ac7c-85db5ad5d394" x="0" y="8" width="38" height="20"/>
+				<textElement/>
+				<text><![CDATA[IGF115]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c11b8e6-8699-4470-a97b-3fb9fd1a7c70" x="510" y="8" width="45" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Grupo 12]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

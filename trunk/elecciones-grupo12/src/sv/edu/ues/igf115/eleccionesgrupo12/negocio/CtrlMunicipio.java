@@ -4,6 +4,7 @@ package sv.edu.ues.igf115.eleccionesgrupo12.negocio;
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.MunicipioDAO;
 import sv.edu.ues.igf115.eleccionesgrupo12.datos.MunicipioPk;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Municipio;
+import sv.edu.ues.igf115.eleccionesgrupo12.dominio.PartidoPolitico;
 import sv.edu.ues.igf115.eleccionesgrupo12.dominio.Urna;
 
 
@@ -49,5 +50,9 @@ public class CtrlMunicipio {
 	      else 
 	    	    return false ;
  }
+	
+	public Municipio daMunicipio(String nombre) {
+		return daoMunicipio.daMunicipioByNombre(nombre);
+	}
 	
 }
