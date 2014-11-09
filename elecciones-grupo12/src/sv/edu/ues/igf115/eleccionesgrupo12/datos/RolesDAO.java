@@ -68,11 +68,5 @@ public class RolesDAO {
 		sesion.close();
 		return roles;
 	}
-	public List<Roles> daRoles(){
-		sesion = sessionFactory.openSession();
-		Query query = sesion.getNamedQuery("Roles.findAll");
-		List<Roles> roles = query.list();
-		sesion.close();
-		return roles;
-	}
+	
 }
