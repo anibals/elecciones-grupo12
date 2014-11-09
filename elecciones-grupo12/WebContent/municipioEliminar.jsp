@@ -9,7 +9,7 @@
     boolean exito=ctrlmunicipio.eliminarMunicipio(nombremuni);
     String Mensaje;
     if(exito){
-    	Mensaje="Municipio ELiminado Correctamente";
+    	Mensaje="Municipio Eliminado Correctamente";
      }else{
     	 Mensaje="Municipio no existe";
      }

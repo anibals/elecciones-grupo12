@@ -9,7 +9,7 @@
     boolean exito=ctrlpadron.eliminar(dui);
     String mensaje;
     if(exito){
-    	mensaje="Guardado con exito";
+    	mensaje="Eliminado con exito";
     }else{
     	mensaje="No existe dui en el padron";
     }
