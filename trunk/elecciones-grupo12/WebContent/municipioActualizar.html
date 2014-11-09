@@ -3,17 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Actualizar municipio</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="col-xs-4 col-xs-offset-4">
+<h1>Actualizar Municipio</h1>
+<form action="munipioActualizar.jsp" class="form-group">
+ID departamento: <input type="text" name="iddepto" class="form-control"><br>
+ID municipio:    <input type="text" name="idmunicipio" class="form-control"><br>
+Nombre Municipio:<input type="text" name="nombremuni" class="form-control"><br>
 
-<form action="munipioActualizar.jsp">
-ID departamento: <input type="text" name="iddepto"><br>
-ID municipio:    <input type="text" name="idmunicipio"><br>
-Nombre Municipio:<input type="text" name="nombremuni"><br>
-
-<input type="submit" value="Actualizar">
+<input type="submit" value="Actualizar" class="btn btn-success center-block">
 
 </form>
-
+</div>
 </body>
 </html>

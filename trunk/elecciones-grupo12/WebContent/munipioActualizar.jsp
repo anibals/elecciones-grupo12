@@ -10,7 +10,7 @@
 	    boolean exito =ctrlmunicipio.actualizar(iddepto, idmunicipio, nombremuni);
 	    if(exito)
 	    {
-	    	mensaje = "Se guardó el municipio";
+	    	mensaje = "Se actualizo el municipio";
 	    }
 	    else{
 	    	mensaje = "Ya existe el municipio";
@@ -21,7 +21,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Actualizar Municipio</title>
 </head>
 <body>
    <%=mensaje %>

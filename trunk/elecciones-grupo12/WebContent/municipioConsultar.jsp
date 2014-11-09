@@ -1,3 +1,5 @@
+<%@page import="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento"%>
+<%@page import="sv.edu.ues.igf115.eleccionesgrupo12.negocio.CtrlDepartamento"%>
 <%@page import="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Municipio"%>
 <%@page import="sv.edu.ues.igf115.eleccionesgrupo12.negocio.CtrlMunicipio"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -8,14 +10,18 @@
     String nombre= request.getParameter("idmunicipio");
     CtrlMunicipio ctrlmunicipio= new CtrlMunicipio();
     
+    Municipio munic= ctrlmunicipio.daMunicipio(nombre);
+    String iddepto=munic.getIdMunicipio().getIdDepartamento();
+    CtrlDepartamento depart= new CtrlDepartamento();
+    Departamento depto=depart.daDepartamentoById(iddepto);
     Municipio municipio= ctrlmunicipio.daMunicipio(nombre);
     String mensaje;
 	if (municipio != null) {
 		mensaje = "Nombre Municipio: "+municipio.getNomb_municipio()+"<br>";
-		mensaje += "ID departamento: "+municipio.getIdMunicipio().getIdDepartamento()+"<br>"; 
-		mensaje += "ID municipio: "+municipio.getIdMunicipio().getIdMunicipio()+"<br>";
+		mensaje += "Departamento: "+depto.getNombDepto()+"<br>"; 
+		mensaje += "ID municipio: "+municipio.getIdMunicipio()+"<br>";
 	}else {
-		mensaje = "No existe un partido político con ese nombre";
+		mensaje = "No existe un municipio con ese ID";
 	}
     
     %>

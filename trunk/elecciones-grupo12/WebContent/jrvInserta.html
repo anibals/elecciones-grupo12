@@ -3,16 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insertar jrv</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<form action="jrvInsertar.jsp">
+<div class="col-xs-4 col-xs-offset-4">
+<h1>Insertar Padron</h1>
+<form action="jrvInsertar.jsp" class="form-group">
 
-ID JRV <input type="text" name="idjrv"><br>
-ID departamento <input type="text" name="iddepto"><br>
-ID municipip: <input type="text" name="idmunicipio"><br>
-DUI:           <input type="text" name="dui"><br>
+ID JRV          <input type="text" name="idjrv" class="form-control"><br>
+ID departamento <input type="text" name="iddepto" class="form-control"><br>
+ID municipio:   <input type="text" name="idmunicipio" class="form-control"><br>
+DUI:            <input type="text" name="dui" class="form-control"><br>
 
-<input type="submit" value="Insertar">
+<input type="submit" value="Insertar" class="btn btn-success center-block">
 </form>
+</div>
 </body>
 </html>
