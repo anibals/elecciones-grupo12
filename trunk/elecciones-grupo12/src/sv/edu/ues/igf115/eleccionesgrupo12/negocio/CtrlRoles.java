@@ -21,6 +21,28 @@ public class CtrlRoles {
 	}
 	
 	}
+	public boolean actualizar(Integer id, String nombre) throws ParseException{
+		Roles roles = daoRoles.daRolesById(id);
+		if (roles!=null){
+			roles= new Roles(id,nombre);
+			daoRoles.guardaActualiza(roles);
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public boolean eliminar (Integer id) throws ParseException{
+		Roles roles = daoRoles.daRolesById(id);
+		if(roles!=null){
+			daoRoles.eliminar(roles);
+			return true;
+		}else 
+		{
+			return false;
+		}
+	}
 	public Roles daRolesById(Integer id){
 		return daoRoles.daRolesById(id);
 	}
