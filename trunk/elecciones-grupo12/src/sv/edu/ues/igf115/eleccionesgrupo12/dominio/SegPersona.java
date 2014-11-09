@@ -1,14 +1,21 @@
 package sv.edu.ues.igf115.eleccionesgrupo12.dominio;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 
 @Entity
 @Table(name="seg_persona", catalog="elecciones2014", schema="")
@@ -39,6 +46,11 @@ public class SegPersona {
 	@Column(name="email")
 	private String email;
 	
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private List<SegUsuario> segUsuario= new ArrayList<SegUsuario>();
+	
+	
+	
 	public SegPersona (String nombre, String apellido, String telefono,String dui,String email ) throws ParseException {
 		this.nombre=nombre;
 		this.apellido= apellido;
@@ -47,6 +59,14 @@ public class SegPersona {
 		this.email= email;
 	}
 	
+	public SegPersona (Integer id, String nombre, String apellido, String telefono,String dui,String email ) throws ParseException {
+		this.idPersona=id;
+		this.nombre=nombre;
+		this.apellido= apellido;
+		this.telefono= telefono;
+		this.dui= dui;
+		this.email= email;
+	}
 	public SegPersona(){
 		
 	}
