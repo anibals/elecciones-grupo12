@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="seg_usuario", catalog="elecciones2014", schema="")
 public class SegUsuario {
@@ -36,8 +37,23 @@ public class SegUsuario {
 	@Column(name="activo")
 	private int activo;
 	
+	//@ManyToOne
+	//private SegPersona segPersona;
+	
+	//@ManyToOne
+	//private Roles roles;
+	
+	
 public SegUsuario (Integer idPersona, Integer idRol, String usuario, String clave, int activo){
 	
+	this.idPersona=idPersona;
+	this.idRol=idRol;
+	this.usuario=usuario;
+	this.clave=clave;
+	this.activo=activo;
+	}
+public SegUsuario (Integer id,Integer idPersona, Integer idRol, String usuario, String clave, int activo){
+	this.idUsuario=id;
 	this.idPersona=idPersona;
 	this.idRol=idRol;
 	this.usuario=usuario;
