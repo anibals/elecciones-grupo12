@@ -4,14 +4,15 @@
     pageEncoding="ISO-8859-1"%>
     
  <%
-int idjrv = Integer.parseInt(request.getParameter("idjrv"));
+int id= Integer.parseInt(request.getParameter("idjrv"));
 CtrlJrv ctrljrv = new CtrlJrv();
-Jrv jrv = ctrljrv.daJrvById(idjrv);
+Jrv jrv = ctrljrv.daJrvById(id);
 String mensaje;
 if (jrv!= null) {
-	mensaje = "Nombre Municipio: "+jrv.getMunicipio().getNomb_municipio()+"<br>";
-	mensaje += "Nombre Departamento: "+jrv.getMunicipio().getIdMunicipio().getIdDepartamento()+"<br>";
-	mensaje += "Zona de Geografia: "+jrv.getDui()+"<br>";
+	mensaje = "ID JRV: "+jrv.getId()+"<br>";
+	mensaje += "ID de municipio: " + jrv.getMunicipio().getIdMunicipio().getIdMunicipio() + "<br>";
+	mensaje += "ID de departamento: " + jrv.getMunicipio().getIdMunicipio().getIdDepartamento() + "<br>";
+	mensaje += "DUI: "+jrv.getDui().getDui()+"<br>";
 	
 }else {
 	mensaje = "No existe un partido político con ese código";

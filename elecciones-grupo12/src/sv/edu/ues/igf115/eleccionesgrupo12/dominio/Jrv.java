@@ -31,7 +31,7 @@ public class Jrv implements Serializable {
 
 	//RELACIONES<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumns({
 	    @JoinColumn(name="id_municipio", referencedColumnName="id_municipio"),
 	    @JoinColumn(name="id_depto", referencedColumnName="id_depto")
@@ -91,14 +91,6 @@ public class Jrv implements Serializable {
 	}
 	
 	
-	public Municipio getIdmunicipio() {
-		return municipio;
-	}
-	
-	
-	public void setIdmunicipio(Municipio idmunicipio) {
-		this.municipio = idmunicipio;
-	}
 	
 	
 	public PadronElectoral getDui() {
@@ -165,4 +157,7 @@ public class Jrv implements Serializable {
 	public void setMiembroList(List<MiembroJRV> miembroList) {
 		this.miembroList = miembroList;
 	}
+	
+	
+	
 }
