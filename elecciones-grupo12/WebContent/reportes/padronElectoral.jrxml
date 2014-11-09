@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="padronElectoral" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a2b6c78-973a-4ed8-94a2-5056ea42fbf3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     padronelectoral.`DUI` AS padronelectoral_DUI,
+     padronelectoral.`nombre` AS padronelectoral_nombre,
+     padronelectoral.`apellidos` AS padronelectoral_apellidos,
+     padronelectoral.`fecha_nac` AS padronelectoral_fecha_nac,
+     padronelectoral.`domicilio` AS padronelectoral_domicilio,
+     padronelectoral.`estado_votacion` AS padronelectoral_estado_votacion,
+     padronelectoral.`id_urna` AS padronelectoral_id_urna
+FROM
+     `padronelectoral` padronelectoral]]>
+	</queryString>
+	<field name="padronelectoral_DUI" class="java.lang.String"/>
+	<field name="padronelectoral_nombre" class="java.lang.String"/>
+	<field name="padronelectoral_apellidos" class="java.lang.String"/>
+	<field name="padronelectoral_fecha_nac" class="java.sql.Timestamp"/>
+	<field name="padronelectoral_domicilio" class="java.lang.String"/>
+	<field name="padronelectoral_estado_votacion" class="java.lang.String"/>
+	<field name="padronelectoral_id_urna" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="bdec69a6-12f1-4d43-ab73-823e1ba4ed67" x="229" y="48" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="708c5ea2-d840-4648-b7a1-1a9989775a4c" x="170" y="0" width="227" height="28"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Listado de Padron Electoral]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0fcd3ba1-5b9d-4a25-a816-e357d5ab587b" x="233" y="28" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Elecciones 2014]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement uuid="1ec5c1cf-6ff5-43eb-a116-f0ca13c33654" x="0" y="33" width="555" height="2"/>
+			</line>
+			<staticText>
+				<reportElement uuid="45cfb50c-c3a2-49c0-ab88-6cfcd166d8f4" x="0" y="15" width="25" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DUI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6c819741-1f0a-4b52-85b0-ae7bf160c0d3" x="270" y="13" width="52" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha NC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="85ff31da-cd6c-4d91-a437-188786cf0468" x="170" y="13" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="829aae08-f2ca-4d2d-8835-d7006a04d722" x="422" y="13" width="41" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="36f5aec2-c056-422b-934c-f5eee252e090" x="70" y="13" width="49" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d5e3eefb-d0d2-4213-aa6b-ded7b0951440" x="322" y="13" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Domicilio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b79de49a-9106-4eb1-a9f6-6c47f00b7474" x="503" y="15" width="38" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Urna]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<line>
+				<reportElement uuid="17cdb970-b9d1-4b36-b37a-f94a4c33eeb9" x="0" y="28" width="555" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="f5f16199-d2d9-491a-8980-5091eb291075" x="0" y="9" width="70" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{padronelectoral_DUI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="31e42037-1108-4e23-9b3b-2009403182dc" x="70" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{padronelectoral_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="dd2de546-425d-4c1b-aea8-fa5f20af5b1a" x="170" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{padronelectoral_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="556ed7f6-9b53-412c-9086-82ffd8b388b0" x="270" y="9" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{padronelectoral_fecha_nac}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="329fe9f2-ac0e-4864-b50e-44262d0d1e78" x="322" y="9" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{padronelectoral_domicilio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="71a07508-720b-45b0-99bf-c3d2bcf98fce" x="422" y="9" width="86" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{padronelectoral_estado_votacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a05f9f3f-5860-4e5b-861a-8e3e26a94c57" x="508" y="9" width="33" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{padronelectoral_id_urna}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="9ac1c45d-bb4a-4d1c-ac7c-85db5ad5d394" x="0" y="0" width="38" height="20"/>
+				<textElement/>
+				<text><![CDATA[IGF115]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0c11b8e6-8699-4470-a97b-3fb9fd1a7c70" x="503" y="6" width="45" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Grupo 12]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
