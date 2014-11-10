@@ -28,6 +28,9 @@
 <title>Eliminar Municipio</title>
 </head>
 <body>
+<jsp:include page='menus/administrador.jsp' />
+	<br>
+	<br>
 <%=Mensaje %>
 
 

@@ -27,6 +27,12 @@ if (departamento!= null) {
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<!-- Inicio de texto a copiar -->
+	<jsp:include page='menus/administrador.jsp' />
+	<br>
+	<br>
+<!-- Fin de texto a copiar -->
+
 <div class="col-xs-4 col-xs-offset-4">
 		<h1>Consultar Departament</h1>
 	<%= mensaje %>

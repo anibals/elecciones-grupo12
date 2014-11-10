@@ -35,4 +35,7 @@ if (padron!= null) {
 <body>
    <%=mensaje %>
 </body>
+<jsp:include page='menus/administrador.jsp' />
+	<br>
+	<br>
 </html>

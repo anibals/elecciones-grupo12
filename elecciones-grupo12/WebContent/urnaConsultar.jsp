@@ -30,6 +30,9 @@
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<jsp:include page='menus/administrador.jsp' />
+	<br>
+	<br>
 	<div class="col-xs-4 col-xs-offset-4">
 		<h1>Consultar urna</h1>
 	<%= mensaje %>

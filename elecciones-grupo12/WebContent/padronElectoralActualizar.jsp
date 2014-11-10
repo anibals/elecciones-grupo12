@@ -31,6 +31,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page='menus/administrador.jsp' />
+	<br>
+	<br>
 <%=mensaje %>
 </body>
 </html>
