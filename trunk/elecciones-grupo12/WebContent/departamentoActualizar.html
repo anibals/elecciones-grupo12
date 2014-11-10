@@ -3,17 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Actualizar Departamento</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
+<div class="col-xs-4 col-xs-offset-4">
+<h1>Actualizar Departamento</h1>
 
-<form method="post" action="departamentoActualizar.jsp">
-	ID Departamento: <input type="text" value="" name="idDepto"><br><br>
-	Nombre del Departamento: <input type="text" value="" name="nombreDepto"><br><br>
-	Zona Geografica: <input type="text" value="" name="zonaGeo"><br><br>
-	<input type="submit" value="Actualizar"  ><br><br>
+<form method="post" action="departamentoActualizar.jsp" class="form-group">
+	ID Departamento: <input type="text" value="" name="idDepto" class="form-control"><br><br>
+	Nombre del Departamento: <input type="text" value="" name="nombreDepto" class="form-control"><br><br>
+	Zona Geografica: <input type="text" value="" name="zonaGeo" class="form-control"><br><br>
+	<input type="submit" value="Actualizar"  class="btn btn-success center-block"><br><br>
 	</form>
 
-
+</div>
 </body>
 </html>
