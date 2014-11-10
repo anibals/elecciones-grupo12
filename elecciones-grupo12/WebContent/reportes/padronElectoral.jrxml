@@ -3,17 +3,17 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
+	<queryString>
 		<![CDATA[SELECT
-     padronelectoral.`DUI` AS padronelectoral_DUI,
-     padronelectoral.`nombre` AS padronelectoral_nombre,
-     padronelectoral.`apellidos` AS padronelectoral_apellidos,
-     padronelectoral.`fecha_nac` AS padronelectoral_fecha_nac,
-     padronelectoral.`domicilio` AS padronelectoral_domicilio,
-     padronelectoral.`estado_votacion` AS padronelectoral_estado_votacion,
-     padronelectoral.`id_urna` AS padronelectoral_id_urna
+     PadronElectoral.`DUI` AS padronelectoral_DUI,
+     PadronElectoral.`nombre` AS padronelectoral_nombre,
+     PadronElectoral.`apellidos` AS padronelectoral_apellidos,
+     PadronElectoral.`fecha_nac` AS padronelectoral_fecha_nac,
+     PadronElectoral.`domicilio` AS padronelectoral_domicilio,
+     PadronElectoral.`estado_votacion` AS padronelectoral_estado_votacion,
+     PadronElectoral.`id_urna` AS padronelectoral_id_urna
 FROM
-     `padronelectoral` padronelectoral]]>
+     `PadronElectoral` PadronElectoral]]>
 	</queryString>
 	<field name="padronelectoral_DUI" class="java.lang.String"/>
 	<field name="padronelectoral_nombre" class="java.lang.String"/>
@@ -147,7 +147,8 @@ FROM
 			<textField>
 				<reportElement uuid="a05f9f3f-5860-4e5b-861a-8e3e26a94c57" x="508" y="9" width="33" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{padronelectoral_id_urna}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{padronelectoral_id_urna}
+]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

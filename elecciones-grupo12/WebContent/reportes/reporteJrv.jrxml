@@ -5,25 +5,17 @@
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT
-     jrv.`id_jrv` AS jrv_id_jrv,
-     departamento.nomb_depto AS jrv_id_depto,
-     municipio.nomb_municipio AS jrv_id_municipio,
-     jrv.`DUI` AS jrv_DUI,
-     jrv.`usercrea` AS jrv_usercrea,
-     jrv.`fechacreacion` AS jrv_fechacreacion,
-     jrv.`usermodifica` AS jrv_usermodifica,
-     jrv.`fechamodificacion` AS jrv_fechamodificacion
+     JRV.`id_jrv` AS jrv_id_jrv,
+     JRV.`DUI` AS jrv_DUI,
+     JRV.`id_municipio` AS JRV_id_municipio,
+     JRV.`id_depto` AS JRV_id_depto
 FROM
-     `jrv` jrv,departamento,municipio]]>
+     `JRV` JRV]]>
 	</queryString>
 	<field name="jrv_id_jrv" class="java.lang.Integer"/>
-	<field name="jrv_id_depto" class="java.lang.String"/>
-	<field name="jrv_id_municipio" class="java.lang.String"/>
 	<field name="jrv_DUI" class="java.lang.String"/>
-	<field name="jrv_usercrea" class="java.lang.String"/>
-	<field name="jrv_fechacreacion" class="java.sql.Timestamp"/>
-	<field name="jrv_usermodifica" class="java.lang.String"/>
-	<field name="jrv_fechamodificacion" class="java.sql.Timestamp"/>
+	<field name="JRV_id_municipio" class="java.lang.String"/>
+	<field name="JRV_id_depto" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -62,7 +54,7 @@ FROM
 			<staticText>
 				<reportElement uuid="049a8513-b54f-4ee8-a02b-5624eceb2c7a" x="168" y="12" width="100" height="20"/>
 				<textElement/>
-				<text><![CDATA[Departamento]]></text>
+				<text><![CDATA[ ID Departamento]]></text>
 			</staticText>
 			<staticText>
 				<reportElement uuid="e72c5902-e94f-488b-94ab-cb6258f12ccd" x="295" y="12" width="100" height="20"/>
@@ -84,16 +76,16 @@ FROM
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="28" splitType="Stretch">
+		<band height="31" splitType="Stretch">
 			<textField>
 				<reportElement uuid="4ae062ab-b047-48e0-84e0-410283acb1b0" x="168" y="8" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{jrv_id_depto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{JRV_id_depto}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="b4a1001a-23cd-49e4-91b9-7899c4c496b6" x="305" y="8" width="100" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{jrv_id_municipio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{JRV_id_municipio}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="338a1f45-195b-486f-9491-fcd619aec135" x="437" y="8" width="100" height="20"/>
