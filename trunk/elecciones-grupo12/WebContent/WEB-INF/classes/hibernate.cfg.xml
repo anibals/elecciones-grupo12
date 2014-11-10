@@ -55,6 +55,8 @@
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Departamento"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.Votacion"/>
         <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.TipoMiembro"/>
+        <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.SegUsuario"/>
+        <mapping class="sv.edu.ues.igf115.eleccionesgrupo12.dominio.SegPersona"/>
 
 
     </session-factory>
