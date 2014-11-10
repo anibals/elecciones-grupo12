@@ -25,8 +25,12 @@ if (miembro!= null) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Consultar Tipo Miembro</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<%= mensaje %>
+<div class="col-xs-4 col-xs-offset-4">
+		<h1>Consultar Tipo Miembro</h1>
+	<%= mensaje %>
+	</div>
 </body>
 </html>

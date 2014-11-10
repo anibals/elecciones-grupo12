@@ -20,8 +20,12 @@ if (exito) {
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Eliminar Departamento</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<%= mensaje %>
+<div class="col-xs-4 col-xs-offset-4">
+		<h1>Eliminar Departamento</h1>
+	<%= mensaje %>
+	</div>
 </body>
 </html>

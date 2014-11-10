@@ -3,15 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Actualizar Votacion</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<form method="post" action="votacionActualizar.jsp">
-	ID Votacion: <input type="text" value="" name="idVotacion"><br><br>
-	ID Urna: <input type="text" value="" name="idUrna"><br><br>
-	ID Partido Politico: <input type="text" value="" name="idPartido"><br><br>
-	Cantidad de Votos Validos: <input type="text" value="" name="cantVotos"><br><br>
-	<input type="submit" value="Actualizar"  ><br><br>
+<div class="col-xs-4 col-xs-offset-4">
+<h1>Actualizar Votacion</h1>
+<form method="post" action="votacionActualizar.jsp" class="form-group">
+	ID Votacion: <input type="text" value="" name="idVotacion" class="form-control"><br><br>
+	ID Urna: <input type="text" value="" name="idUrna" class="form-control"><br><br>
+	ID Partido Politico: <input type="text" value="" name="idPartido" class="form-control"><br><br>
+	Cantidad de Votos Validos: <input type="text" value="" name="cantVotos" class="form-control"><br><br>
+	<input type="submit" value="Actualizar" class="btn btn-success center-block" ><br><br>
 	</form>
-
+</div>
 </body>
 </html>

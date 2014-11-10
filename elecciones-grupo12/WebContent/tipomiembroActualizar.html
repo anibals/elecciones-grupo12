@@ -3,15 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Actualizar Tipo Miembro</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-
-<form method="post" action="tipomiembroActualizar.jsp">
-	ID Tipo Miembro: <input type="text" value="" name="idMiembro"><br><br>
-	Descripción: <textarea name="descripcion" rows="4" cols="40" ></textarea><br><br>
-	<input type="submit" value="Guardar"  ><br><br>
+<div class="col-xs-4 col-xs-offset-4">
+<h1>Actualizar Tipo Miembro</h1>
+<form method="post" action="tipomiembroActualizar.jsp" class="form-group">
+	ID Tipo Miembro: <input type="text" value="" name="idMiembro" class="form-control"><br><br>
+	Descripción: <textarea name="descripcion" rows="4" cols="40" class="form-control" ></textarea><br><br>
+	<input type="submit" value="Guardar" class="btn btn-success center-block" ><br><br>
 	</form>
-
+</div>
 </body>
 </html>

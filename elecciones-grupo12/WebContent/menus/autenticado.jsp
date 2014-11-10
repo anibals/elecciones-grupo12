@@ -74,15 +74,15 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><span class="glyphicon glyphicon-paperclip"></span> Reportes <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="download">
-                        <li><a href="departamentoReporte.html">Departamento</a></li>
-                        <li><a href="jrvReporte.html">JRV</a></li>
-                        <li><a href="miembrojrvReporte.html">Miembro de JRV</a></li>
-                        <li><a href="municipioReporte.html">Municipio</a></li>
-                        <li><a href="padronElectoralReporte.html">Padrón Electoral</a></li>
-                        <li><a href="partidopoliticoReporte.html">Partido Político</a></li>
-                        <li><a href="tipomiembroReporte.html">Tipo de Miembro</a></li>
-                        <li><a href="urnaReporte.html">Urna</a></li>
-                        <li><a href="votacionReporte.html">Votación</a></li>
+                        <li><a href="departamentoReporte.jsp">Departamento</a></li>
+                        <li><a href="jrvReporte.jsp">JRV</a></li>
+                        <li><a href="miembrojrvReporte.jsp">Miembro de JRV</a></li>
+                        <li><a href="municipioReporte.jsp">Municipio</a></li>
+                        <li><a href="padronElectoralReporte.jsp">Padrón Electoral</a></li>
+                        <li><a href="partidopoliticosReporte.jsp">Partido Político</a></li>
+                        <li><a href="tipomiembroReporte.jsp">Tipo de Miembro</a></li>
+                        <li><a href="urnasReporte.jsp">Urna</a></li>
+                        <li><a href="votacionReporte.jsp">Votación</a></li>
                     </ul>
                 </li>
                 <li><a href="#"><span class="glyphicon glyphicon-home"></span> Cerrar sesión</a></li>
