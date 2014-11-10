@@ -4,11 +4,16 @@
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[SELECT id_municipio,nomb_municipio,Departamento.nomb_depto FROM Municipio,Departamento]]>
+		<![CDATA[SELECT
+     Municipio.`id_depto` AS Municipio_id_depto,
+     Municipio.`id_municipio` AS Municipio_id_municipio,
+     Municipio.`nomb_municipio` AS Municipio_nomb_municipio
+FROM
+     `Municipio` Municipio]]>
 	</queryString>
-	<field name="id_municipio" class="java.lang.String"/>
-	<field name="nomb_municipio" class="java.lang.String"/>
-	<field name="nomb_depto" class="java.lang.String"/>
+	<field name="Municipio_id_depto" class="java.lang.String"/>
+	<field name="Municipio_id_municipio" class="java.lang.String"/>
+	<field name="Municipio_nomb_municipio" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -75,19 +80,19 @@
 				<reportElement uuid="acc04027-0644-4ab8-bf77-cad041362d57" x="0" y="0" width="555" height="1"/>
 			</line>
 			<textField>
-				<reportElement uuid="8f2c7cc4-2399-4bad-9539-3b619a8d5433" x="38" y="4" width="100" height="20"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{id_municipio}]]></textFieldExpression>
+				<reportElement uuid="30e38d99-1faf-4248-b7c0-a71cabaffe11" x="395" y="1" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Municipio_id_depto}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="3d64c202-a558-44bc-aaf3-a2487a37fce9" x="201" y="4" width="100" height="20"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{nomb_municipio}]]></textFieldExpression>
+				<reportElement uuid="ec451ac5-82d4-416c-bcf9-57869996eb8d" x="39" y="4" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Municipio_id_municipio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="74a157e0-06b0-4af7-89e3-24a5ad3efcba" x="402" y="4" width="100" height="20"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{nomb_depto}]]></textFieldExpression>
+				<reportElement uuid="958cbd13-a15d-42c5-88b4-376e2d106dbe" x="197" y="1" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{Municipio_nomb_municipio}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
