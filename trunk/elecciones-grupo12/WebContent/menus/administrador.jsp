@@ -23,7 +23,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><span class="glyphicon glyphicon-asterisk"></span> Guardar <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="download">
                         <li><a href="departamentoGuardar.html">Departamento</a></li>
-                        <li><a href="jrvGuardar.html">JRV</a></li>
+                        <li><a href="jrvInserta.html">JRV</a></li>
                         <li><a href="miembrojrvGuardar.html">Miembro de JRV</a></li>
                         <li><a href="municipioGuardar.html">Municipio</a></li>
                         <li><a href="padronElectoralGuardar.html">Padrón Electoral</a></li>
@@ -37,7 +37,7 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download"><span class="glyphicon glyphicon-search"></span> Consultar <span class="caret"></span></a>
                     <ul class="dropdown-menu" aria-labelledby="download">
                         <li><a href="departamentoConsultar.html">Departamento</a></li>
-                        <li><a href="jrvConsultar.html">JRV</a></li>
+                        <li><a href="jrvConsulta.html">JRV</a></li>
                         <li><a href="miembrojrvConsultar.html">Miembro de JRV</a></li>
                         <li><a href="municipioConsultar.html">Municipio</a></li>
                         <li><a href="padronElectoralConsultar.html">Padrón Electoral</a></li>
@@ -80,7 +80,7 @@
                     <ul class="dropdown-menu" aria-labelledby="download">
                      <li><a href="departamentoReporte.jsp">Departamento</a></li>
                         <li><a href="jrvReporte.jsp">JRV</a></li>
-                        <li><a href="miembrojrvReporte.jsp">Miembro de JRV</a></li>
+                        <li><a href="miembrosjrvReporte.jsp">Miembro de JRV</a></li>
                         <li><a href="municipioReporte.jsp">Municipio</a></li>
                         <li><a href="padronElectoralReporte.jsp">Padrón Electoral</a></li>
                         <li><a href="partidopoliticosReporte.jsp">Partido Político</a></li>

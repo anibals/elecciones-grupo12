@@ -32,7 +32,9 @@
 <title>Municipio Consultar</title>
 </head>
 <body>
-
+<jsp:include page='menus/administrador.jsp' />
+	<br>
+	<br>
 
 	<div class="col-xs-4 col-xs-offset-4">
 		<h1>Consultar Municipio</h1>

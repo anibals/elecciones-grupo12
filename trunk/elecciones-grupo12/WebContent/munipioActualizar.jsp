@@ -24,6 +24,9 @@
 <title>Actualizar Municipio</title>
 </head>
 <body>
+<jsp:include page='menus/administrador.jsp' />
+	<br>
+	<br>
    <%=mensaje %>
 </body>
 </html>

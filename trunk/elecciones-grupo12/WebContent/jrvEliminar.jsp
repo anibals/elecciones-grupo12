@@ -17,6 +17,8 @@
 <title>Eliminar JRV</title>
 </head>
 <body>
-
+<jsp:include page='menus/administrador.jsp' />
+	<br>
+	<br>
 </body>
 </html>
