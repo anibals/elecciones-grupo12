@@ -31,6 +31,9 @@ if (exito) {
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
+<jsp:include page='administrador.jsp' />
+
 <div class="col-xs-4 col-xs-offset-4">
 		<h1>Actualizar Departamento</h1>
 	<%= mensaje %>

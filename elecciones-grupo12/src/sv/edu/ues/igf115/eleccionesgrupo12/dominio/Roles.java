@@ -30,7 +30,7 @@ public class Roles {
 	@Column(name="rol")
 	private String nombreRol;
 	
-    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY, mappedBy = "roles")
     private List<SegUsuario> usuario= new ArrayList<SegUsuario>();
    
 	public Roles(String nombreRol) throws ParseException {

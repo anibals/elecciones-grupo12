@@ -46,7 +46,7 @@ public class SegPersona {
 	@Column(name="email")
 	private String email;
 	
-	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY, mappedBy = "segPersona")
 	private List<SegUsuario> segUsuario= new ArrayList<SegUsuario>();
 	
 	
