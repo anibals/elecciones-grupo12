@@ -34,7 +34,7 @@ if (departamento!= null) {
 <!-- Fin de texto a copiar -->
 
 <div class="col-xs-4 col-xs-offset-4">
-		<h1>Consultar Departament</h1>
+		<h1>Consultar Departamento</h1>
 	<%= mensaje %>
 	</div>
 </body>
