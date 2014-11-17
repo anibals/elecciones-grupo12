@@ -39,18 +39,19 @@ public class SegUsuario {
 	@Column(name="activo")
 	private int activo;
 	
-	//@ManyToOne
-	//private SegPersona segPersona;
+	@ManyToOne
+	private SegPersona segPersona;
 	
-	//@ManyToOne
-	//private Roles roles;
-	@JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
+	@ManyToOne
+	private Roles roles;
+	
+	/*@JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
 	@ManyToOne(optional = false)
 	private SegPersona segPersona;
 	
 	@JoinColumn(name = "idrol", referencedColumnName = "idrol")
 	@ManyToOne(optional = false)
-	private Roles roles;
+	private Roles roles;*/
 	
 public SegUsuario (Integer idPersona, Integer idRol, String usuario, String clave, int activo){
 	
