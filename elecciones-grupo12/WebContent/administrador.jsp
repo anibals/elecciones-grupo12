@@ -27,6 +27,9 @@
                         <li><a href="tipomiembroGuardar.html">Tipo de Miembro</a></li>
                         <li><a href="urnaGuardar.html">Urna</a></li>
                         <li><a href="votacionGuardar.html">Votación</a></li>
+                        <li><a href="guardarroles.html">Rol</a></li>
+                        <li><a href="guardarpersona.html">Persona</a></li>
+                        <li><a href="guardarusuario.html">Usuario</a></li>
                    </ul>
                 </li>
                 <li class="dropdown">
@@ -41,6 +44,8 @@
                         <li><a href="tipomiembroConsultar.html">Tipo de Miembro</a></li>
                         <li><a href="urnaConsultar.html">Urna</a></li>
                         <li><a href="votacionConsultar.html">Votación</a></li>
+                        <li><a href="consultarroles.html">Rol</a></li>
+                        <li><a href="consultarpersona.html">Persona</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -55,6 +60,8 @@
                         <li><a href="tipomiembroActualizar.html">Tipo de Miembro</a></li>
                         <li><a href="urnaActualizar.html">Urna</a></li>
                         <li><a href="votacionActualizar.html">Votación</a></li>
+                        <li><a href="actualizarroles.html">Rol</a></li>
+                        <li><a href="actualizarpersona.html">Persona</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -69,6 +76,8 @@
                         <li><a href="tipomiembroEliminar.html">Tipo de Miembro</a></li>
                         <li><a href="urnaEliminar.html">Urna</a></li>
                         <li><a href="votacionEliminar.html">Votación</a></li>
+                        <li><a href="eliminarroles.html">Rol</a></li>
+                        <li><a href="eliminarpersona.html">Persona</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
