@@ -49,8 +49,12 @@ document.forms[0].eliminar.disabled=false;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Eliminar datos personales</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
+<div class="col-xs-4 col-xs-offset-4">
 <%= mensaje %><br><br>
 
 <form method="post" action="eliminarpersona2.jsp" >
@@ -60,7 +64,8 @@ document.forms[0].eliminar.disabled=false;
 	Apellido: <%=apellido%><br><br>
 	Telefono: <%=telefono%><br><br>
 	email:    <%=email%><br><br>
-	<input name="eliminar" type="submit" value="Eliminar"><br><br>
+	<input name="eliminar" type="submit" value="Eliminar" class="btn btn-success center-block"><br><br>
 	</form>
+	</div>
 </body>
 </html>
