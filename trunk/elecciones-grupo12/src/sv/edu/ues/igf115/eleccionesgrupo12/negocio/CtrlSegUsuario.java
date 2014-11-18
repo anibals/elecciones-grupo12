@@ -67,6 +67,12 @@ public class CtrlSegUsuario {
 	public SegUsuario daUsuarioByNombre(String nombre){
 		return daoUsuario.daUsuarioByNombre(nombre);
 	}
+	public SegUsuario daUsuarioByRol(Integer idRol){
+		return daoUsuario.daUsuarioByRol(idRol);
+	}
+	public SegUsuario daUsuarioByPersona(Integer id){
+		return daoUsuario.daUsuarioByPersona(id);
+	}
 	 public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
 		 sv.edu.ues.igf115.eleccionesgrupo12.dominio.SegUsuario  domainUser = daoUsuario.daUsuarioByNombre(login);
 		
