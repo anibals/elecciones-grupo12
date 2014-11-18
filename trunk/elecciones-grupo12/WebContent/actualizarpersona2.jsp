@@ -25,8 +25,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Actualizar datos personales</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
+<div class="col-xs-4 col-xs-offset-4">
 <%= mensaje %><br><br>
+</div>
 </body>
 </html>
