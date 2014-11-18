@@ -49,10 +49,13 @@ document.forms[0].actualizar.disabled=false;
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Actualizar datos personales</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
+<div class="col-xs-4 col-xs-offset-4">
 <%= mensaje %><br><br>
-
 <form method="post" action="actualizarpersona2.jsp" >
 	Id		  <%= id %><br><br>
     DUI:      <input type="text" value=<%= dui %> name="dui" ><br><br>
@@ -60,7 +63,8 @@ document.forms[0].actualizar.disabled=false;
 	Apellido: <input type="text" value=<%= apellido %> name="apellidoPer" ><br><br>
 	Telefono: <input type="text" value=<%= telefono %> name="telefonoPer" ><br><br>
 	email:    <input type="text" value=<%= email %> name="emailPer" ><br><br>
-	<input name="actualizar" type="submit" value="Actualizar"><br><br>
+	<input name="actualizar" type="submit" value="Actualizar" class="btn btn-success center-block"><br><br>
 	</form>
+</div>
 </body>
 </html>
