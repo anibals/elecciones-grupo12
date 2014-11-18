@@ -64,4 +64,18 @@ public class SegUsuarioDAO {
 		sesion.close();
 		return usuario;
 	}
+	public SegUsuario daUsuarioByRol(Integer idRol){
+		sesion = sessionFactory.openSession();
+		Criteria criteria = sesion.createCriteria(SegUsuario.class).add(Restrictions.like("idRol", idRol));
+		SegUsuario usuario = (SegUsuario)criteria.uniqueResult();
+		sesion.close();
+		return usuario;
+	}
+	public SegUsuario daUsuarioByPersona(Integer id){
+		sesion = sessionFactory.openSession();
+		Criteria criteria = sesion.createCriteria(SegUsuario.class).add(Restrictions.like("idPersona", id));
+		SegUsuario usuario = (SegUsuario)criteria.uniqueResult();
+		sesion.close();
+		return usuario;
+	}
 }
