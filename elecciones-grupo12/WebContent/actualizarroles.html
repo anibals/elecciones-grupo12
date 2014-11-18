@@ -3,12 +3,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Actualizar rol</title>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Inicio de texto a copiar -->
+<link href="menus/administrador.html" rel="import" />
 </head>
 <body>
+<br>
+<br>
+<script type="text/javascript">
+	var link = document.querySelector('link[rel="import"]');
+    var content = link.import;
+	var el = content.querySelector('.menu');
+	document.body.appendChild(el.cloneNode(true));
+</script>
+
+<!-- Fin de texto a copiar -->
+
+<div class="col-xs-4 col-xs-offset-4">
+<h1>Actualizar Rol</h1>
 <form method="post" action="actualizarroles.jsp">
 	ID Rol: <input type="text" value="" name="idRol"><br><br>
 	Nombre de Rol: <input type="text" value="" name="nombreRol"><br><br>	
-	<input type="submit" value="Actualizar"  ><br><br>
+	<input type="submit" value="Actualizar" class="btn btn-success center-block" ><br><br>
 	</form>
+	</div>
 </body>
 </html>
