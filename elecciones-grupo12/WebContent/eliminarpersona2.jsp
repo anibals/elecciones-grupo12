@@ -1,16 +1,25 @@
 <%@page import="sv.edu.ues.igf115.eleccionesgrupo12.negocio.CtrlSegPersona"%>
+<%@page import="sv.edu.ues.igf115.eleccionesgrupo12.negocio.CtrlSegUsuario"%>
+<%@page import="sv.edu.ues.igf115.eleccionesgrupo12.dominio.SegUsuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%
+    String mensaje;
     Integer id =Integer.parseInt(request.getParameter("idPersona").trim());
-    CtrlSegPersona ctrlSegPersona = new CtrlSegPersona();	
-	boolean exito = ctrlSegPersona.eliminar(id);
-	String mensaje;
-	if (exito) {
-	mensaje = "Se eliminaron los datos personales";
-	}else {
-	mensaje = "no se pudo eliminar los datos personales";
+    CtrlSegPersona ctrlSegPersona = new CtrlSegPersona();
+    CtrlSegUsuario ctrlUsuario = new CtrlSegUsuario();
+	SegUsuario usuario = ctrlUsuario.daUsuarioByPersona(id);
+	if(usuario==null){
+		boolean exito = ctrlSegPersona.eliminar(id);
+		if (exito) {
+		mensaje = "Se eliminaron los datos personales";
+		}else {
+		mensaje = "no se pudo eliminar los datos personales";
+		}
+	}else{
+		mensaje = "no se puede eliminar los datos personales por que tiene un usuario asociado.";
 	}
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
